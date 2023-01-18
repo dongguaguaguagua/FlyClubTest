@@ -5,7 +5,9 @@
 参考图片：
 
 ![1](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71d2.png)
+
 ![2](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71c6.png)
+
 ![3](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71bf.png)
 
 部署教程：(需要mysql和PHP)。
