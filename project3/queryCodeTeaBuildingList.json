@@ -1,0 +1,266 @@
+[
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "335"
+        },
+        "remark": "",
+        "teachingBuildingName": "工程训练中心"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "338"
+        },
+        "remark": "",
+        "teachingBuildingName": "法学大楼附楼"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "329"
+        },
+        "remark": "",
+        "teachingBuildingName": "艺术实验教学中心"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "301"
+        },
+        "remark": "",
+        "teachingBuildingName": "一教A座"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "334"
+        },
+        "remark": "",
+        "teachingBuildingName": "二基楼B座"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "333"
+        },
+        "remark": "",
+        "teachingBuildingName": "实验室"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "332"
+        },
+        "remark": "",
+        "teachingBuildingName": "体育场"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "331"
+        },
+        "remark": "",
+        "teachingBuildingName": "建环大楼"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "330"
+        },
+        "remark": "",
+        "teachingBuildingName": "艺术大楼"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "305"
+        },
+        "remark": "",
+        "teachingBuildingName": "综合楼B座"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "336"
+        },
+        "remark": "",
+        "teachingBuildingName": "法学大楼主楼"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "347"
+        },
+        "remark": "",
+        "teachingBuildingName": "文科楼二区"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "302"
+        },
+        "remark": "",
+        "teachingBuildingName": "一教B座"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "303"
+        },
+        "remark": "",
+        "teachingBuildingName": "一教C座"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "304"
+        },
+        "remark": "",
+        "teachingBuildingName": "一教D座"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "306"
+        },
+        "remark": "",
+        "teachingBuildingName": "综合楼C座"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "340"
+        },
+        "remark": "",
+        "teachingBuildingName": "文科楼一区"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "350"
+        },
+        "remark": "",
+        "teachingBuildingName": "灾后重建与管理学院C区"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "352"
+        },
+        "remark": "",
+        "teachingBuildingName": "匹兹堡学院"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "354"
+        },
+        "remark": "",
+        "teachingBuildingName": "灾后重建与管理学院A区"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "349"
+        },
+        "remark": "",
+        "teachingBuildingName": "文科楼三区"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "401"
+        },
+        "remark": "",
+        "teachingBuildingName": "制造学院"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "402"
+        },
+        "remark": "",
+        "teachingBuildingName": "I创街"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "药学院"
+        },
+        "remark": "",
+        "teachingBuildingName": "药学院"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "353"
+        },
+        "remark": "",
+        "teachingBuildingName": "文科楼四区"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "400"
+        },
+        "remark": "",
+        "teachingBuildingName": "江安校区体育馆"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "351"
+        },
+        "remark": "",
+        "teachingBuildingName": "水电学院"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "406"
+        },
+        "remark": "",
+        "teachingBuildingName": "卓越工程师教学训练中心"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "20000"
+        },
+        "remark": "",
+        "teachingBuildingName": "虚拟教学楼"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "405"
+        },
+        "remark": "",
+        "teachingBuildingName": "燃烧动力学中心"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "403"
+        },
+        "remark": "",
+        "teachingBuildingName": "体能训练中心"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "408"
+        },
+        "remark": "",
+        "teachingBuildingName": "学业与发展支持中心"
+    },
+    {
+        "id": {
+            "campusNumber": "03",
+            "teachingBuildingNumber": "404"
+        },
+        "remark": "",
+        "teachingBuildingName": "多学科交叉研究创新大楼"
+    }
+]

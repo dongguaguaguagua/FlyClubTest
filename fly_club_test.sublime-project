@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": ".",
 		}
 	],
 	"settings": {
@@ -9,7 +9,11 @@
 			"LSP-pyright": {
 				"enabled": true,
 				"python.pythonPath": "${project_path}/project3/bin/python",
-			}
-		}
-	}
+			},
+			"LSP-pylsp":
+			{
+				"enabled": true
+			},
+		},
+	},
 }
