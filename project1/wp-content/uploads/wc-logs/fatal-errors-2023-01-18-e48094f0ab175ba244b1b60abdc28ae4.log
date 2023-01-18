@@ -1,0 +1,8 @@
+2023-01-18T07:01:58+00:00 CRITICAL /opt/lampp/htdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php 中第 86 行的 Uncaught RuntimeException: 保存操作时出错：数据库错误。 in /opt/lampp/htdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php:86
+Stack trace:
+#0 /opt/lampp/htdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_ActionFactory.php(177): ActionScheduler_DBStore->save_action(Object(ActionScheduler_Action))
+#1 /opt/lampp/htdocs/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_ActionFactory.php(84): ActionScheduler_ActionFactory->store(Object(ActionScheduler_Action))
+#2 /opt/lampp/htdocs/wp-content/plugins/woocommerce/packages/action-scheduler/functions.php(36): ActionScheduler_ActionFactory->single('woocommerce_run...', Array, 1674025317, 'woocommerce-rem...')
+#3 /opt/lampp/htdocs/wp-content/plugins/woocommerce/includes/queue/class-wc-action-queue.php(44): as_schedule_single_action(1674025317, 'woocommerce_run...', Array, 'woocommerce-rem...')
+#4 /opt/lampp/htdocs/wp-content/plugin
+
