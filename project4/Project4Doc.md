@@ -18,6 +18,12 @@ export OPENAI_API_KEY=sk-****
 
 qq-chatgpt中包含两个nonebot2插件——chat和qqcard。我这里主要介绍chat插件。首先，基本的配置在`project4/qq-chatGPT/qq_chatgpt/plugins/chat/config.py`中，主要的逻辑则在`project4/qq-chatGPT/qq_chatgpt/plugins/chat/__init__.py`中实现。
 
+## 如何运行它？
+
+请阅读Nonebot2的官方文档，配置好相关开发环境后，运行本插件。请看动图：
+
+![nb run](https://raw.githubusercontent.com/dongguaguaguagua/fly_club_test/main/project4/images/HowToRunIt.gif)
+
 机器人可以被关键字`.xxx`触发，主要实现了：
 
 ```bash
@@ -31,7 +37,7 @@ qq-chatgpt中包含两个nonebot2插件——chat和qqcard。我这里主要介�
 .restore    # 恢复对话
 ```
 
-这里一一介绍：
+## 介绍8个命令
 
 ## 1. ask命令
 
@@ -80,3 +86,7 @@ bot会告诉你它的使用方法：
 ## 8. restore命令
 
 没有参数。用于恢复对话。
+
+## 最后运行效果
+
+![nb run](https://raw.githubusercontent.com/dongguaguaguagua/fly_club_test/main/project4/images/test_robot.png)
