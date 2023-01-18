@@ -37,7 +37,7 @@ $result = mysqli_query($connect_mysql,$select_sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>sufe资源共享站-电影</title>
+    <title>scu资源共享站-电影</title>
 </head>
 <style>
 
@@ -60,12 +60,12 @@ td.link{
 </style>
 <body>
     <center>
-    <h1>欢迎来到SUFE资源共享站</h1>
-    <a href="http://sufe.getenjoyment.net">首页</a>
-    <a href="http://sufe.getenjoyment.net/movies.php">电影</a>
-    <a href="http://sufe.getenjoyment.net/serial.php">电视剧</a>
-    <a href="http://sufe.getenjoyment.net/variety_show.php">综艺</a>
-    <a href="http://sufe.getenjoyment.net/books.php">书籍</a>
+    <h1>欢迎来到scu资源共享站</h1>
+    <a href="http://scu.getenjoyment.net">首页</a>
+    <a href="http://scu.getenjoyment.net/movies.php">电影</a>
+    <a href="http://scu.getenjoyment.net/serial.php">电视剧</a>
+    <a href="http://scu.getenjoyment.net/variety_show.php">综艺</a>
+    <a href="http://scu.getenjoyment.net/books.php">书籍</a>
     <form action="movies.php?act=insert" method="post">
         <br>上传者
          <input type="txt" name="name" />
@@ -161,7 +161,7 @@ Fuzzysearch.prototype={
             }
             colStr+="<tr><th style=\"width:5.2%\">分享者</th><th style=\"width:30%\">电影名称</th><th style=\"width:30%\">网盘链接</th><th style=\"width:5%\">提取码</th><th style=\"width:26.8%\">备注</th><th style=\"width:3%\">操作</th></tr>";
             for(var i=0,len=list[1].length;i<len;i++){
-                 colStr+="<tr><td style=\"width:5.2%\">"+list[0][i]+"</td><td style=\"width:30%\">"+list[1][i]+"</td><td style=\"width:30%\" class=\"link\"><a href=\""+list[2][i]+"\">"+list[2][i]+"</a></td><td style=\"width:5%\">"+list[3][i]+"</td><td style=\"width:26.8%\">"+list[4][i]+"</td><td style=\"width:3%\"><input type=\"button\" value=\"删除\" onclick=\"window.location.href='http://sufe.getenjoyment.net/movies.php?act=delete&movieName="+list[1][i]+"'\"></td></tr>";
+                 colStr+="<tr><td style=\"width:5.2%\">"+list[0][i]+"</td><td style=\"width:30%\">"+list[1][i]+"</td><td style=\"width:30%\" class=\"link\"><a href=\""+list[2][i]+"\">"+list[2][i]+"</a></td><td style=\"width:5%\">"+list[3][i]+"</td><td style=\"width:26.8%\">"+list[4][i]+"</td><td style=\"width:3%\"><input type=\"button\" value=\"删除\" onclick=\"window.location.href='http://scu.getenjoyment.net/movies.php?act=delete&movieName="+list[1][i]+"'\"></td></tr>";
             }
             
             this.searchShow.innerHTML = colStr;

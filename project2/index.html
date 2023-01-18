@@ -51,7 +51,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<td><a href=\"".$row['link']."\">".$row['link']."</a></td>";
     echo "<td>".$row['extractCode']."</td>";
     echo "<td>".$row['notes']."</td>";
-    echo "<td><input type=\"button\" value=\"删除\" onclick=\"window.location.href='http://sufe.getenjoyment.net/movies.php?act=delete&movieName=".$row['movieName']."'\"></td>";
+    echo "<td><input type=\"button\" value=\"删除\" onclick=\"window.location.href='http://scu.getenjoyment.net/movies.php?act=delete&movieName=".$row['movieName']."'\"></td>";
     echo "</tr></center>";
 }
 ?> -->
@@ -60,7 +60,7 @@ while($row = mysqli_fetch_array($result)){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>sufe资源共享站-电影</title>
+    <title>scu资源共享站-电影</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <style>
         body{
@@ -188,27 +188,27 @@ while($row = mysqli_fetch_array($result)){
     <div class="head">
         <div class="container">
             <div class="logo">
-                <div class="logo1" onclick="window.open('https://www.sufe.edu.cn/')">SUFE</div>
+                <div class="logo1" onclick="window.open('https://www.scu.edu.cn/')">scu</div>
                 <div class="logo2">资源共享站(电影)</div>
             </div>
-            <div class="menu" onclick="window.open('http://sufe.getenjoyment.net/movies.php')">
+            <div class="menu" onclick="window.open('http://scu.getenjoyment.net/movies.php')">
                 <i class="fa fa-film fa-lg"></i>
                 电影
             </div>
-            <div class="menu" onclick="window.open('http://sufe.getenjoyment.net/serial.php')">
+            <div class="menu" onclick="window.open('http://scu.getenjoyment.net/serial.php')">
                 <i class="fa fa-video-camera fa-lg"></i>
                 电视剧
             </div>
-            <div class="menu" onclick="window.open('http://sufe.getenjoyment.net/variety_show.php')">
+            <div class="menu" onclick="window.open('http://scu.getenjoyment.net/variety_show.php')">
                 <i class="fa fa-hand-peace-o fa-lg"></i>
                 综艺
             </div>
-            <div class="menu" onclick="window.open('http://sufe.getenjoyment.net/books.php')">
+            <div class="menu" onclick="window.open('http://scu.getenjoyment.net/books.php')">
                 <i class="fa fa-book fa-lg"></i>
                 书籍
             </div>
             <!-- 
-            <div class="menu" onclick="window.open('http://sufe.getenjoyment.net/about.php')">
+            <div class="menu" onclick="window.open('http://scu.getenjoyment.net/about.php')">
                 <i class="fa fa-info-circle fa-lg"></i>
                 关于
             </div> -->

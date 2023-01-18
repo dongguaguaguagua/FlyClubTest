@@ -1,11 +1,12 @@
-# 川大foodrating网站
+# 川大学子的在线食堂
 
 本网站使用Wordpress搭建了一个去中心化的食物评分系统，网页端主要采用PHP，并使用mysql作为数据库。
 
 参考图片：
-[1](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71d2.png)
-[2](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71c6.png)
-[3](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71bf.png)
+
+![1](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71d2.png)
+![2](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71c6.png)
+![3](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71bf.png)
 
 部署教程：(需要mysql和PHP)。
 1. 在[xampp官网](https://www.apachefriends.org/index.html)下载并安装xampp。
