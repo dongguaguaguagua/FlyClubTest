@@ -20,7 +20,7 @@ qq-chatgpt中包含两个nonebot2插件——chat和qqcard。我这里主要介�
 
 ## 如何运行它？
 
-请看动图：
+请阅读Nonebot2的官方文档，配置好相关开发环境后，运行本插件。请看动图：
 
 ![nb run](https://raw.githubusercontent.com/dongguaguaguagua/fly_club_test/main/project4/images/HowToRunIt.gif)
 

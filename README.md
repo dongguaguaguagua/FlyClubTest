@@ -69,6 +69,8 @@
 
 ### 项目四(有一定难度，推荐一人，弄好后也可以使用他人编好的插件)
 
+**[查看项目四说明](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project4/Project4Doc.md)**
+
 利用网络上现有的 QQ 机器人框架，搭建一个属于自己的 QQ 机器人，可以是与个人交互也可以是与群成员交互
 
 要求一:搭建好机器人框架并能够正常运行
