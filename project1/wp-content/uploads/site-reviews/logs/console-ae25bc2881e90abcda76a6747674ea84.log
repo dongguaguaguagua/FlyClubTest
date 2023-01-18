@@ -1,0 +1,139 @@
+[2022-10-09 06:36:11] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:11] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:11] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:11] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_3_0_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_4_0_2] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_4_4_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_4_5_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_0_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_2_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_3_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_9_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_10_3] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_11_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_14_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_19_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_25_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_3_0_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_4_0_2] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_4_4_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_4_5_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_0_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_2_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_3_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_9_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_10_3] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_11_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_14_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_19_0] has run successfully
+[2022-10-09 06:36:13] DEBUG [Modules\Migrate:169] [Migrate_5_25_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_3_0_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_4_0_2] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_4_4_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_4_5_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_0_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_2_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_3_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_9_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_10_3] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_11_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_14_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_19_0] has run successfully
+[2022-10-09 06:36:19] DEBUG [Modules\Migrate:169] [Migrate_5_25_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_3_0_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_4_0_2] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_4_4_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_4_5_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_0_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_2_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_3_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_9_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_10_3] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_11_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_14_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_19_0] has run successfully
+[2022-10-09 06:36:20] DEBUG [Modules\Migrate:169] [Migrate_5_25_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_3_0_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_4_0_2] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_4_4_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_4_5_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_0_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_2_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_3_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_9_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_10_3] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_11_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_14_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_19_0] has run successfully
+[2022-10-09 06:37:44] DEBUG [Modules\Migrate:169] [Migrate_5_25_0] has run successfully
+[2022-10-09 06:38:46] DEBUG [Modules\Migrate:169] [Migrate_6_0_0] has run successfully
+[2022-10-09 08:49:51] WARNING [Commands\DeactivatePlugin:38] Deactivation reason missing.
+[2022-10-09 08:49:53] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 08:49:53] ERROR [Database:288] Can&#039;t DROP FOREIGN KEY `glsr_assigned_posts_post_id_foreign`; check that it exists
+[2022-10-09 08:49:53] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_terms] does not use the InnoDB engine.
+[2022-10-09 08:49:53] ERROR [Database:288] Can&#039;t DROP FOREIGN KEY `glsr_assigned_terms_term_id_foreign`; check that it exists
+[2022-10-09 08:49:53] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_users] does not use the InnoDB engine.
+[2022-10-09 08:49:53] ERROR [Database:288] Can&#039;t DROP FOREIGN KEY `glsr_assigned_users_user_id_foreign`; check that it exists
+[2022-10-09 08:49:53] DEBUG [Database\Tables\AbstractTable:123] Cannot check for a foreign constraint because [wpp7_posts] does not use the InnoDB engine.
+[2022-10-09 08:49:53] ERROR [Database:288] Can&#039;t DROP FOREIGN KEY `glsr_ratings_review_id_foreign`; check that it exists

@@ -1,0 +1,164 @@
+# Copyright (C) 2022 YITH
+# This file is distributed under the same license as the YITH WooCommerce Catalog Mode package.
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Catalog Mode 2.16.1\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/yith-woocommerce-catalog-mode\n"
+"POT-Creation-Date: 2022-11-11 12:53:36+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: class-yith-woocommerce-catalog-mode.php:193
+#: plugin-options/settings-options.php:15
+msgid "Settings"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:218
+#. translators: %1$s opening B tag, %2$s closing B tag
+msgid ""
+"Enable the catalog mode rules %1$s only for guest %2$s or for %1$s users "
+"from specific countries %2$s  (Example: hide prices or add to cart buttons "
+"only to users from USA)"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:220
+#. translators: %1$s opening B tag, %2$s closing B tag
+msgid ""
+"Enable the catalog mode on %1$s specific time ranges and/or dates only %2$s "
+"(Example: prevent new orders on Sunday or in December during Christmas "
+"holidays)"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:222
+#. translators: %1$s opening B tag, %2$s closing B tag
+msgid ""
+"Use the %1$s Exclusion List %2$s to enable or disable the catalog mode %1$s "
+"only on specific products, categories or tag of your shop %2$s"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:223
+msgid ""
+"Hide the Add to Cart button only on specific products and the product "
+"prices to all users or to guest users only"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:225
+#. translators: %1$s opening B tag, %2$s closing B tag
+msgid ""
+"Use the Advanced Builder to %1$s create and design custom buttons or labels "
+"%2$s to replace add to cart and price in shop page and product page"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:227
+#. translators: %1$s opening B tag, %2$s closing B tag
+msgid ""
+"%1$s Add a custom inquiry form on the product page %2$s using the default "
+"form or choosing a plugin between Contact Form 7, Gravity Form, Ninja "
+"Forms, Formidable Forms or WP Forms"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:228
+msgid "Regular updates, Translations and Premium Support"
+msgstr ""
+
+#: init.php:37
+#. translators: %s name of the plugin
+msgid "%s is enabled but not effective. In order to work, it requires WooCommerce."
+msgstr ""
+
+#: init.php:57
+#. translators: %s name of the plugin
+msgid ""
+"You can't activate the free version of %s while you are using the premium "
+"one."
+msgstr ""
+
+#: plugin-options/settings-options.php:19
+msgid "Catalog mode for administrators"
+msgstr ""
+
+#: plugin-options/settings-options.php:22
+msgid "If enabled, the Catalog Mode rules will also work for admin users."
+msgstr ""
+
+#: plugin-options/settings-options.php:27
+msgid "Disable shop"
+msgstr ""
+
+#: plugin-options/settings-options.php:30
+msgid ""
+"Use this option to hide the \"Cart\" page, \"Checkout\" page and all the "
+"\"Add to Cart\" buttons in the shop."
+msgstr ""
+
+#: plugin-options/settings-options.php:37
+msgid "\"Add to Cart\" settings in Catalog Mode"
+msgstr ""
+
+#: plugin-options/settings-options.php:38
+msgid "Choose where to hide \"Add to Cart\"."
+msgstr ""
+
+#: plugin-options/settings-options.php:47
+msgid "All pages"
+msgstr ""
+
+#: plugin-options/settings-options.php:48
+msgid "Shop page"
+msgstr ""
+
+#: plugin-options/settings-options.php:49
+msgid "Product page"
+msgstr ""
+
+#: plugin-options/settings-options.php:67
+msgid "Hide product variations"
+msgstr ""
+
+#: plugin-options/settings-options.php:70
+msgid "Use this option to hide product variations where \"Add to cart\" is hidden."
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"<code><strong>YITH WooCommerce Catalog Mode</strong></code> allows hiding "
+"product prices, cart and checkout from your store and turning it into a "
+"performing product catalogue. You will be able to adjust your catalogue "
+"settings as you prefer based on your requirements. <a "
+"href=\"https://yithemes.com/\" target=\"_blank\">Get more plugins for your "
+"e-commerce shop on <strong>YITH</strong></a>"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:169
+msgctxt "general settings tab name"
+msgid "Settings"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:170
+msgctxt "exclusion settings tab name"
+msgid "Exclusion List"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:171
+msgctxt "inquiry form settings tab name"
+msgid "Inquiry Form"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:172
+msgctxt "buttons & labels settings tab name"
+msgid "Buttons & Labels"
+msgstr ""
+
+#: class-yith-woocommerce-catalog-mode.php:177
+#. translators: %1$s opening B tag - %2$s closing B tag
+msgctxt "[HELP TAB] Video title"
+msgid ""
+"Check this video to learn how to %1$sconvert your shop into a product "
+"catalog%2$s"
+msgstr ""
