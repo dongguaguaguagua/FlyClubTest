@@ -18,7 +18,7 @@ export OPENAI_API_KEY=sk-****
 
 qq-chatgpt中包含两个nonebot2插件——chat和qqcard。我这里主要介绍chat插件。首先，基本的配置在`project4/qq-chatGPT/qq_chatgpt/plugins/chat/config.py`中，主要的逻辑则在`project4/qq-chatGPT/qq_chatgpt/plugins/chat/__init__.py`中实现。
 
-## 如何运行它？
+## 如何运行？
 
 请阅读Nonebot2的官方文档，配置好相关开发环境后，运行本插件。请看动图：
 
@@ -39,23 +39,23 @@ qq-chatgpt中包含两个nonebot2插件——chat和qqcard。我这里主要介�
 
 ## 介绍8个命令
 
-## 1. ask命令
+### 1. ask命令
 
 ask只记录一段对话。就是说，问第二个问题是，bot已经忘掉你第一句问了什么了。
 
-## 2. chat命令
+### 2. chat命令
 
 bot会记录所有「聊天」记录，即可以通过不断发送`.chat 请问xxxxx`来实现对话。其中夹杂.ask不会影响bot的记忆。
 
-## 3. clear命令
+### 3. clear命令
 
 意思就是让bot忘记刚刚的对话，从头开始。
 
-## 4. image命令
+### 4. image命令
 
 通过OPENAI的图像生成引擎返回一张图片。有一个参数（optional），就是图片的大小，有`256x256, 512x512, 1024x1024`三个值可选，默认为256x256。图像越大生成得越慢。
 
-## 5. help命令
+### 5. help命令
 
 bot会告诉你它的使用方法：
 
@@ -73,17 +73,17 @@ bot会告诉你它的使用方法：
 [作者：@nanguagua]
 ```
 
-## 6. toll命令
+### 6. toll命令
 
 有一个参数为回滚的条数，`.toll 3`就是忘记三条对话。这在说错话时很管用。
 
-## 7. backup命令
+### 7. backup命令
 
 没有参数。用于把对话储存到本地。由于这个机器人还在更新维护中，所以停掉之前备份一下对话是很有必要的。
 
 `project4/qq-chatGPT/qq_chatgpt/pickles`目录用于存放备份的`.pkl`文件。
 
-## 8. restore命令
+### 8. restore命令
 
 没有参数。用于恢复对话。
 

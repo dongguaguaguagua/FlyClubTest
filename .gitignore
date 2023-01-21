@@ -1,1 +1,11 @@
 .DS_Store
+
+lib/
+bin/
+include/
+share/
+pyvenv.cfg
+*.sublime-project
+*.sublime-workspace
+
+
