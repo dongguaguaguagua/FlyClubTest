@@ -6,7 +6,7 @@
 
 **[查看项目一说明](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/Project1Doc.md)**
 
-简介:https://www.cnblogs.com/jsonphp/articles/6517343.html
+简介: https://www.cnblogs.com/jsonphp/articles/6517343.html
 
 要求:
 
@@ -18,6 +18,8 @@
 
 ### 项目二 版1(推荐1人，涉及前端)
 
+**[查看项目二说明](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/Project2Doc.md)**
+
 简介: [web 前端 30 个新手项目列表，学完即可上手做项目](https://zhuanlan.zhihu.com/p/100250058)
 
 要求:
@@ -27,8 +29,6 @@
 3. 作品简介加上这学期的学习心得提交 md 文件或 pdf 文件
 
 ### 项目二 版2(推荐1人，涉及前端)
-
-**[查看项目二说明](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/Project2Doc.md)**
 
 简介: [前端怎么才能找到项目做?](https://www.zhihu.com/question/392328321)
 

@@ -134,7 +134,10 @@ def get_content(i, d, campusName):
     name = d["teachingBuildingName"]
     return f"[u]{i}.[/u][b] {name}[/b]\n[[cyan]{campusName}[/][yellow]{number}[/]]"
 
-def getTimeTable(campusIndex) -> Table:
+def printTimeTable(campusIndex) -> int:
+    if not campusIndex in [1,2,3]:
+        console.log("[b]ERROR![/b] Fail to print time table: Unknown Campus.", style="red")
+        return 1
     table = Table(
         show_edge=False,
         show_header=True,
@@ -145,7 +148,6 @@ def getTimeTable(campusIndex) -> Table:
     table.add_column("课程", justify="center", style="bold")
     table.add_column("时间", justify="center", style="bold")
     if campusIndex == 1 or campusIndex == 2:
-        table.title = "{}校区教学时间表".format(campusList[campusIndex - 1])
         table.add_row("[green u]1[/]","[blue]第01节课[/]","[yellow]08:00[/]-[yellow]08:45[/]")
         table.add_row("[green u]2[/]","[blue]第02节课[/]","[yellow]08:55[/]-[yellow]09:40[/]")
         table.add_row("[green u]3[/]","[blue]第03节课[/]","[yellow]10:00[/]-[yellow]10:45[/]")
@@ -161,7 +163,6 @@ def getTimeTable(campusIndex) -> Table:
         table.add_row("[green u]11[/]","[blue]第11节课[/]","[yellow]20:25[/]-[yellow]21:10[/]")
         table.add_row("[green u]12[/]","[blue]第12节课[/]","[yellow]21:20[/]-[yellow]22:05[/]")
     elif campusIndex == 3:
-        table.title = "江安校区教学时间表"
         table.add_row("[green u]1[/]","[blue]第01节课[/]","[yellow]08:15[/]-[yellow]09:00[/]")
         table.add_row("[green u]2[/]","[blue]第02节课[/]","[yellow]09:10[/]-[yellow]09:55[/]")
         table.add_row("[green u]3[/]","[blue]第03节课[/]","[yellow]10:15[/]-[yellow]11:00[/]")
@@ -176,14 +177,34 @@ def getTimeTable(campusIndex) -> Table:
         table.add_row("[green u]10[/]","[blue]第10节课[/]","[yellow]19:20[/]-[yellow]20:05[/]")
         table.add_row("[green u]11[/]","[blue]第11节课[/]","[yellow]20:15[/]-[yellow]21:00[/]")
         table.add_row("[green u]12[/]","[blue]第12节课[/]","[yellow]21:10[/]-[yellow]21:55[/]")
-    return table
+    console.print(Panel.fit(
+            table,
+            padding=(1, 2),
+            title="[bold white]{}校区教学时间表".format(campusList[campusIndex - 1]),
+            border_style="bright_green"
+        ), justify= "center"
+    )
+    return 0
 
 def searchFreeClassroom() -> int:
-    console.print("您想要查询哪个校区的空闲教室？", justify="center", style="bold")
-
-    renderables = [Panel(f"[u]{i + 1}.[/u] [cyan]{name}", expand=True)
-                    for i, name in enumerate(campusList)]
-    console.print(Columns(renderables))
+    message = Table.grid()
+    message.add_column()
+    message.add_column()
+    message.add_column()
+    message.add_row(
+        Panel("[u]1.[/u] [cyan]望江"),
+        Panel("[u]2.[/u] [cyan]华西"),
+        Panel("[u]3.[/u] [cyan]江安")
+    )
+    console.print(
+        Panel.fit(
+            message,
+            padding=(1, 2),
+            title="[bold white]您想要查询哪个校区的空闲教室？",
+            border_style="bright_blue",
+        ),
+        justify="center",
+    )
 
     if userConfig["campus"] == 0:
         while True:
@@ -231,7 +252,7 @@ def searchFreeClassroom() -> int:
         buildingList = [obj["id"]["teachingBuildingNumber"] for obj in d[campusIndex - 1]]
         console.log("[b]WARNING:[/b] 默认为选择所有教学楼。", style="yellow")
 
-    console.print(getTimeTable(campusIndex))
+    printTimeTable(campusIndex)
 
     while True:
         console.print("[dim]>>>[/] ([magenta]用空格分割[/]) 选择想要查询的时间段: ", end="")

@@ -1,12 +1,17 @@
-# 抓包获取微博热搜榜
+# 项目三
 
-> project3中存在一个python3虚拟环境，安装了request beautifulsoup lxml等包。
+## 抓包获取微博热搜榜
+
+> 本项目需要request beautifulsoup lxml等包。
 >
-> 可使用如下命令激活：
+> 可使用如下命令安装
 
 ```bash
-source project3/bin/activate
+cd project3
+pip install -r requirements.txt
 ```
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/weiboTop.png)
 
 其他都挺顺利的，就是我一开始爬[微博热搜榜](https://s.weibo.com/top/summary)的时候，response里面总是没有热搜列表，只有一堆scripts。
 
@@ -14,7 +19,7 @@ source project3/bin/activate
 
 所以代码长得这么丑，一点也不优雅。而且不知道这个cookie能用几天。。。不过程序的逻辑没啥问题：
 
-![code]()
+![code](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/code.png)
 
 程序会输出一个markdown列表的格式，看起来舒服些。
 
@@ -125,3 +130,47 @@ source project3/bin/activate
 - [周焯华获刑18年](https://s.weibo.com/weibo?q=%23%E5%91%A8%E7%84%AF%E5%8D%8E%E8%8E%B7%E5%88%9118%E5%B9%B4%23&t=31&band_rank=48&Refer=top)
 - [周也新春汉服大片](https://s.weibo.com/weibo?q=%23%E5%91%A8%E4%B9%9F%E6%96%B0%E6%98%A5%E6%B1%89%E6%9C%8D%E5%A4%A7%E7%89%87%23&t=31&band_rank=49&Refer=top)
 - [苏醒张远与十年前的自己对话](https://s.weibo.com/weibo?q=%23%E8%8B%8F%E9%86%92%E5%BC%A0%E8%BF%9C%E4%B8%8E%E5%8D%81%E5%B9%B4%E5%89%8D%E7%9A%84%E8%87%AA%E5%B7%B1%E5%AF%B9%E8%AF%9D%23&t=31&band_rank=50&Refer=top)
+
+## 爬取四川大学教务管理系统[SCU URP](http://zhjw.scu.edu.cn/)空闲教室
+
+> 本项目需要request beautifulsoup lxml等包。
+>
+> 可使用如下命令安装
+
+```bash
+cd project3
+pip install -r requirements.txt
+```
+
+这是一个自动登录，自动爬取SCU URP空闲教室的脚本，没有将结果保存为Excel而是直接在命令行输出，因为我觉得后者更优雅一些。
+
+使用者只需要安装所需的python第三方库，然后在`userConfig.json`中设置好自己的账号、密码，即可用`python getFreeClassroom.py`搜索空闲教室了。
+
+---
+
+脚本使用request发送请求，python的rich模块美化输出，使用ddddocr进行自动OCR验证码识别（有一定识别失败率）。脚本输出非常好看，截图如下：
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/getFreeClassroom1.png)
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/getFreeClassroom2.png)
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/getFreeClassroom3.png)
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/getFreeClassroom4.png)
+
+详细一点介绍：
+
+主要逻辑代码在`getFreeClassroom.py`中，其中`login()->int`函数负责登录教务系统，`searchFreeClassroom()->int`负责剩下的爬取工作。
+
+登录的接口采用 http://zhjw.scu.edu.cn/j_spring_security_check 需要提供：
+
+- token_value
+- 正确的验证码
+- 正确的账号密码
+
+其中密码采用md5值哈希加密了一下。
+
+空闲教室的接口为 http://zhjw.scu.edu.cn/student/teachingResources/freeClassroom/today/ 有两个参数，可通过传入`position=01_n`来指定望江的教学楼。
+
+
+
