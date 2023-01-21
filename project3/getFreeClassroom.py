@@ -1,6 +1,7 @@
 import os
 import json
 import hashlib
+import sys
 import requests
 
 # 带带弟弟 OCR
@@ -9,7 +10,7 @@ from ddddocr import DdddOcr
 # 用rich输出
 from rich.console import Console
 from rich.columns import Columns
-from rich.table import Column, Table
+from rich.table import Table
 from rich.panel import Panel
 
 # ------ init -------
@@ -19,7 +20,15 @@ console.log("正在初始化……")
 ocr = DdddOcr(show_ad = False)
 session = requests.session()
 
-httpHead = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33"}
+httpHead = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33",
+    'Accept': 'application/json, text/javascript, */*; q=0.01',
+    'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'X-Requested-With': 'XMLHttpRequest',
+    'Origin': 'http://zhjw.scu.edu.cn',
+    'Connection': 'keep-alive',
+}
 loginUrl = "http://zhjw.scu.edu.cn/login"
 loginCheckUrl = "http://zhjw.scu.edu.cn/j_spring_security_check"
 captchaImgUrl = "http://zhjw.scu.edu.cn/img/captcha.jpg"
@@ -30,13 +39,21 @@ buildingListUrl = "http://zhjw.scu.edu.cn/student/teachingResources/freeClassroo
 
 # 3个校区
 campusList = ["望江", "华西", "江安"]
+
 # getFreeClassroom.py 所在的目录
 # 即 project3 的绝对路径
 fileDir = os.path.dirname(os.path.abspath(__file__))
-console.log("[green][OK]", justify="right")
-# load config
-with open(f"{fileDir}/userConfig.json") as f:
-    userConfig = json.load(f)
+
+# 加载 userConfig.json 默认值为：
+# {"username": "", "password": "", "campus": 0, "buildings": [], "rememberBuildings": true }
+try:
+    with open(f"{fileDir}/userConfig.json") as f:
+        userConfig = json.load(f)
+except json.decoder.JSONDecodeError:
+    console.log("[b]ERROR![/b] Invalid userConfig file!", style="red")
+    sys.exit(1)
+
+console.log("[OK]", justify="right", style="green")
 # ----- init end --------
 
 # -4 未知错误
@@ -51,35 +68,35 @@ def login() -> int:
         return -3
     try:
         http_page = session.get(loginUrl)
+        console.log(f"[u]登录页获取[/u] > 状态码", http_page.status_code)
         if http_page.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
             return -2
-        console.log(f"[u]登录页获取[/u] > 状态码[cyan]{http_page.status_code}[/cyan]")
-        console.log("[green][OK]", justify="right")
+        console.log("[OK]", justify="right", style="green")
 
         tokenValue = http_page.text.find("tokenValue")
+        console.log(f"[u]随机码获取[/u] >", tokenValue)
         if tokenValue <= 0:
             console.log("[b]ERROR![/b] failed to get token.", style="red")
             return -2
         tokenValue = http_page.text[tokenValue + 37:tokenValue + 69]
-        console.log(f"[u]随机码获取[/u] > [cyan]{tokenValue}[/cyan]")
-        console.log("[green][OK]", justify="right")
+        console.log("[OK]", justify="right", style="green")
 
         http_captcha = session.get(captchaImgUrl)
+        console.log(f"[u]验证码获取[/u] > 状态码", http_captcha.status_code)
         if http_page.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
             return -2
-        console.log(f"[u]验证码获取[/u] > 状态码[cyan]{http_captcha.status_code}[/cyan]")
-        console.log("[green][OK]", justify="right")
+        console.log("[OK]", justify="right", style="green")
     except requests.exceptions.ConnectionError:
         console.log("[b]ERROR![/b] Internet Connection broken.", style="red")
         return -2
-    with open(f"{fileDir}/images/captcha.jpg", "wb") as f:
-        f.write(http_captcha.content)
-        f.close()
+    # with open(f"{fileDir}/images/captcha.jpg", "wb") as f:
+    #     f.write(http_captcha.content)
+    #     f.close()
     captchaResult = ocr.classification(http_captcha.content)
     console.log(f"[u]验证码识别[/u] > [cyan]{captchaResult}")
-    console.log("[green][OK]", justify="right")
+    console.log("[OK]", justify="right", style="green")
     httpHash = hashlib.md5(userConfig["password"].encode()).hexdigest()
     postData = {
         "tokenValue": tokenValue,
@@ -92,8 +109,8 @@ def login() -> int:
     except requests.exceptions.ConnectionError:
         console.log("[b]ERROR![/b] Internet Connection broken.", style="red")
         return -2
-    console.log(f"[u]验证码提交[/u] > 状态码[cyan]{http_post.status_code}")
-    console.log("[green][OK]", justify="right")
+    console.log(f"[u]验证码提交[/u] > 状态码", http_post.status_code)
+    console.log("[OK]", justify="right", style="green")
     if http_post.text.find('验证码错误') != -1:
         console.log("[u]登录未成功[/u]：验证码不正确", style="red")
         # TODO: 重新获取验证码
@@ -115,7 +132,7 @@ def get_content(i, d, campusName):
     """Extract text from dict."""
     number = d["id"]["teachingBuildingNumber"]
     name = d["teachingBuildingName"]
-    return f"[u]{i}.[/u][b] {name}[/b]\n[[cyan]{campusName}[/cyan][yellow]{number}[/yellow]]"
+    return f"[u]{i}.[/u][b] {name}[/b]\n[[cyan]{campusName}[/][yellow]{number}[/]]"
 
 def getTimeTable(campusIndex) -> Table:
     table = Table(
@@ -161,94 +178,117 @@ def getTimeTable(campusIndex) -> Table:
         table.add_row("[green u]12[/]","[blue]第12节课[/]","[yellow]21:10[/]-[yellow]21:55[/]")
     return table
 
-def searchFreeClassroom():
-    console.print("[bold]您想要查询哪个校区的空闲教室？", justify="center")
+def searchFreeClassroom() -> int:
+    console.print("您想要查询哪个校区的空闲教室？", justify="center", style="bold")
 
-    renderables = [Panel(f"[u]{i + 1}.[/u] [cyan]{name}", expand=True) for i, name in enumerate(campusList)]
+    renderables = [Panel(f"[u]{i + 1}.[/u] [cyan]{name}", expand=True)
+                    for i, name in enumerate(campusList)]
     console.print(Columns(renderables))
 
-    while True:
-        try:
-            console.print("[dim]>>>[/] 请输入编号: ", end="")
-            campusIndex = int(input())
-            if 1 <= campusIndex <= 3:
-                break
-            else:
-                console.log("[b]WARNING[/b]: 请输入1,2,3中的一个数。",style="yellow")
-        except:
-            console.log("[b]WARNING[/b]: 请输入一个正整数。",style="yellow")
+    if userConfig["campus"] == 0:
+        while True:
+            try:
+                console.print("[dim]>>>[/] 请输入编号: ", end="")
+                campusIndex = int(input())
+                if 1 <= campusIndex <= 3:
+                    userConfig["campus"] = campusIndex
+                    break
+                else:
+                    console.log("[b]WARNING[/b]: 请输入1,2,3中的一个数。",style="yellow")
+            except:
+                console.log("[b]WARNING[/b]: 请输入一个正整数。",style="yellow")
+    else:
+        console.print(f"使用 [u i]userConfig.json[/] 中的值:", userConfig["campus"])
+        campusIndex = userConfig["campus"]
 
     # open the downloaded building list
     with open(f"{fileDir}/queryCodeTeaBuildingList.json") as f:
         d = json.load(f)
 
-    buildingList = d[campusIndex - 1]
+    renderables = [Panel(get_content(i, d, campusList[campusIndex - 1]), expand=False)
+                    for i, d in enumerate(d[campusIndex - 1])]
+    console.print(Columns(renderables), justify="center")
 
-    renderables = [Panel(get_content(i, d, campusList[campusIndex - 1]),
-                    expand=False) for i, d in enumerate(buildingList)]
-    console.print(Columns(renderables))
-
-    if userConfig["buildings"] == []:
-        console.print("[dim]>>>[/] ([magenta]用空格分割[/magenta]) 请选择想要查询的教学楼编号: ", end="")
+    if userConfig["buildings"] == [] or userConfig["buildings"] == [""]:
+        console.print("[dim]>>>[/] ([magenta]用空格分割[/]) 请选择想要查询的教学楼编号: ", end="")
         buildingList = input().split(" ")
     else:
         buildingList = userConfig["buildings"]
-        console.print(f"使用 [u i]userConfig.json[/u i] 中的值: [cyan]{' '.join(buildingList)}")
+        console.log(f"使用 [u i]userConfig.json[/] 中的值:", ' '.join(buildingList))
     if userConfig["rememberBuildings"]:
         userConfig["buildings"] = buildingList
     else:
         userConfig["buildings"] = []
+
     with open(f"{fileDir}/userConfig.json", 'w', encoding='utf-8') as f:
         json.dump(userConfig, f, ensure_ascii=False, indent=4)
-        console.log(f"已将[cyan]'buildings': [{','.join(buildingList)}][/cyan]存入 [u i]userConfig.json")
+        console.log(f"已将[cyan]'buildings': [{','.join(buildingList)}][/]存入 [u i]userConfig.json")
+
+    try:
+        buildingList = [d[campusIndex - 1][int(i)]["id"]["teachingBuildingNumber"] for i in buildingList]
+    except ValueError:
+        console.log("[b]WARNING:[/b] 请输入正确的编号。", style="yellow")
+        buildingList = [obj["id"]["teachingBuildingNumber"] for obj in d[campusIndex - 1]]
+        console.log("[b]WARNING:[/b] 默认为选择所有教学楼。", style="yellow")
 
     console.print(getTimeTable(campusIndex))
-    console.print("[dim]>>>[/] ([magenta]用空格分割[/magenta]) 选择想要查询的时间段: ", end="")
-    timeList = input().split(" ")
 
-    http_response = session.get(todayUrl + ','.join(timeList))
-    jsonList = json.loads(http_response.text)
-    spareroomList = jsonList["spareroomObjList"]
+    while True:
+        console.print("[dim]>>>[/] ([magenta]用空格分割[/]) 选择想要查询的时间段: ", end="")
+        timeList = set(input().split(" "))
+        try:
+            int("".join(timeList))
+        except ValueError:
+            console.log("[b]WARNING:[/b] 请输入正确的时间段。", style="yellow")
+            continue
+        break
+
+    try:
+        http_response = session.post(todayUrl, data={
+            'xqm': campusList[campusIndex-1],
+            'position': f"0{campusIndex}_n"
+        })
+        console.log(f"[u]今日教室获取[/u] > 状态码", http_response.status_code)
+        if http_response.status_code != 200:
+            console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
+            return -2
+        console.log("[OK]", justify="right", style="green")
+
+        http_response = session.post(todayUrl + ','.join(timeList), data={"dayplus": "0"})
+        console.log(f"[u]空闲教室获取[/u] > 状态码", http_response.status_code)
+        if http_response.status_code != 200:
+            console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
+            return -2
+        console.log("[OK]", justify="right", style="green")
+    except requests.exceptions.ConnectionError:
+        console.log("[b]ERROR![/b] Internet Connection broken.", style="red")
+        return -2
+
+    try:
+        spareroomList = json.loads(http_response.text)["spareroomObjList"]
+    except json.decoder.JSONDecodeError:
+        console.log("[b]ERROR[/b] 未知错误。", style="red")
+        return -4
 
     table = Table(show_edge=True, show_header=True, expand=False)
-    table.title = jsonList["curxqm"] + "空闲教室一览表"
+    table.title = f"[b]{campusList[campusIndex - 1]}空闲教室一览表"
     table.add_column("[green]教学楼[/]", no_wrap=False, justify="center", style="bold")
-    table.add_column("[green]教室名+容纳人数[/]", no_wrap=False, justify="center", style="bold")
+    table.add_column("[green]教室名 + 容纳人数[/]", no_wrap=False, justify="center", style="bold")
+    # print(buildingList)
+    # print(spareroomList)
     for obj in spareroomList:
+        if not obj['acmcBuilding'] in buildingList:
+            continue
         renderables = []
         for classroom in obj["claroom"]:
-            renderables.append(Panel(f"[white bold]{classroom['classroom']}[/]\n[cyan]{classroom['classNumberOfSeats']}[/]", expand=False, border_style="bright_green",))
+            renderables.append(Panel(f"[white bold]{classroom['classroom']}[/]\n[cyan]{classroom['classNumberOfSeats']}[/]",
+                                 expand=False, border_style="bright_green",))
         table.add_row(f"[yellow]{obj['acmcBuilding']}[/] {obj['acmcBuildingName']}", Columns(renderables))
-
     console.print(table)
-
-# # get the list through requests
-# # ----- begin -----
-
-# print("获取教学楼列表中，请稍后……")
-
-# data = "&xqh=0{}".format(campusIndex)
-
-# responses = requests.post(
-#     buildingListUrl,
-#     cookies=cookies,
-#     headers=headers,
-#     data=data,
-# )
-
-# print("完成")
-
-# try:
-#     buildingList = json.loads(responses.text)
-#     for i in buildingList:
-#         print(i["teachingBuildingName"])
-# except:
-#     print("cookies已过期！请重新登录")
-
-# # ------ end ------
+    return 0
 
 if __name__ == '__main__':
-    if login() == 0:
-        searchFreeClassroom()
+    if login() == 0 and searchFreeClassroom() == 0:
+        console.log("搜索完成", style="green")
 
 
