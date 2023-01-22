@@ -6,23 +6,23 @@
 
 ## 参考图片：
 
-![主页](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/1.png)
+![主页支持搜索、查看菜肴、对产品排序等等](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/1.png)
 
-支持查找、查看菜肴等。
-
-![产品页面](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/2.png)
-
-产品可评论、可评分、可上传图片等等。
+![产品页面可评论、可评分、可上传图片等等](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/2.png)
 
 ![评论页面](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/3.png)
 
+![登录](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/register.png)
+
+![注册](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/login.png)
+
 ## 部署教程：(需要mysql和PHP)。
 
-![1](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71d2.png)
+<!-- ![1](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71d2.png)-->
 
-![2](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71c6.png)
+<!-- ![2](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71c6.png)-->
 
-![3](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71bf.png)
+<!-- ![3](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71bf.png)-->
 
 1. 在[xampp官网](https://www.apachefriends.org/index.html)下载并安装xampp。
 2. 启动XAMPP的所有服务。此处打开localhost:8080将会看到`apache friends`欢迎页。

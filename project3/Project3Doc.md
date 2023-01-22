@@ -1,13 +1,27 @@
 # 项目三
 
-## 抓包获取微博热搜榜
+## 版一 抓包获取微博热搜榜
+
+### 安装必要的库
 
 > 本项目需要request beautifulsoup lxml等包。
 >
 > 可使用如下命令安装
 
 ```bash
+git clone https://github.com/dongguaguaguagua/flyClubTest.git
+cd flyClubTest/project3
+pip install -r requirements.txt
+```
+
+> **强烈建议使用python虚拟环境**，步骤如下：
+
+```bash
+git clone https://github.com/dongguaguaguagua/flyClubTest.git
+cd flyClubTest
+python -m venv project3
 cd project3
+source ./bin/activate # OSX
 pip install -r requirements.txt
 ```
 
@@ -22,6 +36,10 @@ pip install -r requirements.txt
 ![code](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/code.png)
 
 程序会输出一个markdown列表的格式，看起来舒服些。
+
+### 程序输出
+
+#### 1. 命令行输出Markdown格式文本
 
 2023/1/18 3:38PM 运行结果：
 
@@ -131,9 +149,21 @@ pip install -r requirements.txt
 - [周也新春汉服大片](https://s.weibo.com/weibo?q=%23%E5%91%A8%E4%B9%9F%E6%96%B0%E6%98%A5%E6%B1%89%E6%9C%8D%E5%A4%A7%E7%89%87%23&t=31&band_rank=49&Refer=top)
 - [苏醒张远与十年前的自己对话](https://s.weibo.com/weibo?q=%23%E8%8B%8F%E9%86%92%E5%BC%A0%E8%BF%9C%E4%B8%8E%E5%8D%81%E5%B9%B4%E5%89%8D%E7%9A%84%E8%87%AA%E5%B7%B1%E5%AF%B9%E8%AF%9D%23&t=31&band_rank=50&Refer=top)
 
-## 爬取四川大学教务管理系统[SCU URP](http://zhjw.scu.edu.cn/)空闲教室
+#### 2. 当前目录下创建微博热搜榜表格
 
-> 本项目需要request beautifulsoup lxml等包。
+鉴于CSV格式有跨平台（不可能每个电脑都装Execl吧）而且简洁的特性，我选择创建CSV表格来保存微博热搜数据。
+
+（主要是写入CSV不需要xlrd xlwt pandas这些库的帮助）
+
+CSV文件名符合 `微博热搜榜[年]-[月]-[日] [时][分][秒]`。
+
+![使用numbers打开](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/weiboTopCSV.png)
+
+## 版二 爬取四川大学教务管理系统[SCU URP](http://zhjw.scu.edu.cn/)空闲教室
+
+### 安装并运行
+
+> 本项目需要request ddddocr rich等包。
 >
 > 可使用如下命令安装
 
@@ -142,13 +172,34 @@ cd project3
 pip install -r requirements.txt
 ```
 
-这是一个自动登录，自动爬取SCU URP空闲教室的脚本，没有将结果保存为Excel而是直接在命令行输出，因为我觉得后者更优雅一些。
+> 仍然推荐使用虚拟环境，毕竟ddddocr 300+MB不是盖的
+> 方法同上
+
+这是一个自动登录，自动爬取SCU URP空闲教室的脚本，没有将结果保存为Excel而是**直接在命令行输出**，因为我觉得后者更优雅一些。
 
 使用者只需要安装所需的python第三方库，然后在`userConfig.json`中设置好自己的账号、密码，即可用`python getFreeClassroom.py`搜索空闲教室了。
 
----
+### 文件介绍
 
-脚本使用request发送请求，python的rich模块美化输出，使用ddddocr进行自动OCR验证码识别（有一定识别失败率）。脚本输出非常好看，截图如下：
+`userConfig.json` 默认状态+使用说明（注释）
+
+```json
+{
+    "username": "",             // 用户名（一般就是学号）
+    "password": "",             // 密码（zhjw.scu.edu.cn 的登陆密码）
+    "campus": 0,                // 校区编号：1:望江 2.华西 3.江安 0.运行时让我选择
+    "buildings": [],            // 想要查询的教学楼列表
+    "rememberBuildings": false  // 记住我选择的教学楼列表，下次再用
+}
+```
+
+`queryCodeTeaBuildingList.json` 是从 [四川大学教务管理系统教学楼列表](http://zhjw.scu.edu.cn/student/teachingResources/freeClassroom/queryCodeTeaBuildingList) 爬取下来的json源文件。
+
+由于教学楼列表是不会变的，所以存到本地有助于提高效率，减少请求量。
+
+### 部分技术原理
+
+- 脚本使用request发送请求，python的rich模块美化输出，使用ddddocr进行自动OCR验证码识别（有一定识别失败率）。脚本输出非常好看，截图如下：
 
 ![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/getFreeClassroom1.png)
 
@@ -158,19 +209,14 @@ pip install -r requirements.txt
 
 ![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/getFreeClassroom4.png)
 
-详细一点介绍：
-
-主要逻辑代码在`getFreeClassroom.py`中，其中`login()->int`函数负责登录教务系统，`searchFreeClassroom()->int`负责剩下的爬取工作。
-
-登录的接口采用 http://zhjw.scu.edu.cn/j_spring_security_check 需要提供：
-
-- token_value
-- 正确的验证码
-- 正确的账号密码
-
-其中密码采用md5值哈希加密了一下。
-
-空闲教室的接口为 http://zhjw.scu.edu.cn/student/teachingResources/freeClassroom/today/ 有两个参数，可通过传入`position=01_n`来指定望江的教学楼。
+- 主要逻辑代码在`getFreeClassroom.py`中，其中`login()->int`函数负责登录教务系统，`searchFreeClassroom()->int`负责剩下的爬取工作。
+- 登录的接口采用 http://zhjw.scu.edu.cn/j_spring_security_check
+- 成功登录需要提供：
+    - token_value
+    - 正确的验证码
+    - 正确的账号密码
+    - 其中密码采用md5值哈希加密
+- 空闲教室的接口为 http://zhjw.scu.edu.cn/student/teachingResources/freeClassroom/today/ 有两个参数，可通过传入`position=01_n`来指定望江的教学楼。
 
 
 

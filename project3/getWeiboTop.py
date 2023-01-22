@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 
@@ -28,9 +29,16 @@ headers = {
 response = requests.get(url, cookies=cookies, headers=headers)
 soup = BeautifulSoup(response.text, "lxml")
 all_tds = soup.find_all('td')
+#  This should be as simple as:
 
-for i in all_tds:
-    if "td-02" in i.get("class") and i.a.get("href") != "javascript:void(0);":
-        href = "https://s.weibo.com" + i.a.get("href")
-        result = "- [{}]({})".format(i.a.get_text(), href)
-        print(result)
+with open(f"微博热搜榜{str(datetime.today())}.csv", 'a') as csv_file:
+    csv_file.write("排名,热搜名称,链接\n")
+    i = 1
+    for td in all_tds:
+        if "td-02" in td.get("class") and td.a.get("href") != "javascript:void(0);":
+            text = td.a.get_text()
+            href = "https://s.weibo.com" + td.a.get("href")
+            result = "- [{}]({})".format(text, href)
+            csv_file.write(f"{i},{text},{href}\n")
+            print(result)
+            i += 1
