@@ -18,6 +18,12 @@
 
 ## 部署教程：(需要mysql和PHP)。
 
+![1](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71d2.png)
+
+![2](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71c6.png)
+
+![3](https://pic.imgdb.cn/item/63c79cd3be43e0d30e2a71bf.png)
+
 1. 在[xampp官网](https://www.apachefriends.org/index.html)下载并安装xampp。
 2. 启动XAMPP的所有服务。此处打开localhost:8080将会看到`apache friends`欢迎页。
 3. 登入[localhost:8080/phpmyadmin](localhost:8080/phpmyadmin)新建database数据表。
