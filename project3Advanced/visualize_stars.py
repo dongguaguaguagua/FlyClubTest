@@ -1,17 +1,21 @@
-import numpy as np
+import pandas
 import seaborn as sns
 import matplotlib.pyplot as plt
-sns.set_theme(style="white", context="talk")
-rs = np.random.RandomState(8)
 
-# Set up the matplotlib figure
-f, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(7, 5), sharex=True)
+sns.set_theme(style="whitegrid", context="talk")
 
-# Generate some sequential data
-x = np.array(list("ABCDEFGHIJ"))
-y1 = np.arange(1, 11)
-sns.barplot(x=x, y=y1, palette="rocket")
-ax1.axhline(0, color="k", clip_on=False)
-ax1.set_ylabel("Sequential")
+plt.rcParams['font.family'] = 'Arial Unicode MS'  # 解决中文字体无法显示问题
+plt.rcParams['axes.unicode_minus'] = False  # 步骤二（解决坐标轴负数的负号显示问题）
 
+csv = pandas.read_csv("./python_repository_list.csv", encoding="utf8")
+# 取前50条数据
+x = csv['名称'][:50]
+y = csv['星标数(star)'][:50]
+for i in range(len(x)):
+    if len(x[i]) > 12:
+        x[i] = x[i][:12] + "..."
+
+ax = sns.barplot(x=y, y=x, palette="rocket")
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=10)
 plt.show()

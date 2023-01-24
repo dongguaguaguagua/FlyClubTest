@@ -2,6 +2,8 @@
 
 ## 1. 爬取1000个python项目
 
+主要在`advancedMain.py`中实现
+
 这里使用了[GitHub Topics](https://github.com/topics/python) 下面的数据。
 
 虽然没有要求尽量爬star多的，但是由于**接下来是要对star进行分析的**，所以我按stars排序，从star最多的[system-design-primer](https://github.com/donnemartin/system-design-primer) 开始爬，一直爬完Top1000 star的python项目。
@@ -43,4 +45,17 @@ def save_to_csv():
 
 ![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/csv_image.png)
 
-## 2. dependency
+## 2. 可视化星标数项目排行榜
+
+主要在`visualize_stars.py`中实现。
+
+![代码截图](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/code.png)
+
+使用seaborn库画的star前50的项目排行榜：
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure_1.png)
+
+## 3. 可视化项目依赖图
+
+主要在`visualize_dependency.py`中实现。
+
