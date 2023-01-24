@@ -23,11 +23,17 @@
 
 ### 页面截图
 
-![添加电影](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/page1.png)
+- 添加电影:
 
-![资源页面](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/page2.png)
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/page1.png)
 
-![查找电影](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/page3.png)
+- 资源页面:
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/page2.png)
+
+- 查找电影:
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/page3.png)
 
 （友情链接：[上海财经大学资源共享站](http://sufe.getenjoyment.net/serial.php)）
 
@@ -50,9 +56,13 @@
 
 ### 页面截图
 
-![unicode和字符串相互转换、反屏蔽文本](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/unicodePage1.png)
+- unicode和字符串相互转换、反屏蔽文本:
 
-![加密解密文本](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/unicodePage2.png)
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/unicodePage1.png)
+
+- 加密解密文本:
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project2/images/unicodePage2.png)
 
 这里提供加密解密函数。可知，使用5进制和5个零宽字符来实现隐藏一段文本。
 

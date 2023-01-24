@@ -38,6 +38,8 @@
 
 ### 项目三(推荐 1 人，涉及爬虫)
 
+**[查看项目三说明](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/Project3Doc.md)**
+
 要求:
 
 1. 爬取微服务的空闲教室
@@ -45,8 +47,6 @@
 3. 以上数据需要以 excel 形式存入电脑
 
 ### 项目三进阶版(推荐 2 人，涉及爬虫，不过难度可能有点大，感兴趣就可以试着做做，不感兴 趣就算了，不是硬性要求)
-
-**[查看项目三说明](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/Project3Doc.md)**
 
 #### 你好，GitHub
 

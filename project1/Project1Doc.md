@@ -6,15 +6,25 @@
 
 ## 参考图片：
 
-![主页支持搜索、查看菜肴、对产品排序等等](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/1.png)
+- 主页支持搜索、查看菜肴、对产品排序等等:
 
-![产品页面可评论、可评分、可上传图片等等](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/2.png)
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/1.png)
 
-![评论页面](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/3.png)
+- 产品页面可评论、可评分、可上传图片等等:
 
-![登录](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/register.png)
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/2.png)
 
-![注册](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/login.png)
+- 评论页面:
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/3.png)
+
+- 登录界面:
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/register.png)
+
+- 注册界面:
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project1/images/login.png)
 
 ## 部署教程：(需要mysql和PHP)。
 

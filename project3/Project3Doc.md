@@ -155,9 +155,9 @@ pip install -r requirements.txt
 
 （主要是写入CSV不需要xlrd xlwt pandas这些库的帮助）
 
-CSV文件名符合 `微博热搜榜[年]-[月]-[日] [时][分][秒]`。
+CSV文件名符合 `微博热搜榜[年]-[月]-[日] [时][分][秒]`。使用numbers打开:
 
-![使用numbers打开](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/weiboTopCSV.png)
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/weiboTopCSV.png)
 
 ## 版二 爬取四川大学教务管理系统[SCU URP](http://zhjw.scu.edu.cn/)空闲教室
 

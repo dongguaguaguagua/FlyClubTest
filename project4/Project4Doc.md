@@ -1,12 +1,14 @@
 # 基于Nonebot的QQchatBot实现
 
-最近火爆的chatGPT把AI聊天的热度推向新高。于是我就想结合chatGPT实现一个简单的聊天机器人。
+## 前言
 
-通过使用最快的go-cqhttp框架和基于One-Bot协议的Nonebot2，使开发变得容易许多。
-
-然而，chatGPT最近把API封锁了，github上没法找到其任何破解出来的API，包括相关的python第三方库也挂了。
-
-所以我退而求其次，选择了基于GPT-3的text-davinci-003引擎（要知道chatGPT是基于GPT-3.5）相当于弱化版的chatGPT。
+> 最近火爆的chatGPT把AI聊天的热度推向新高。于是我就想结合chatGPT实现一个简单的聊天机器人。
+>
+> 通过使用最快的go-cqhttp框架和基于One-Bot协议的Nonebot2，使开发变得容易许多。
+>
+> 然而，chatGPT最近把API封锁了，github上没法找到其任何破解出来的API，包括相关的python第三方库也挂了。
+>
+> 所以我退而求其次，选择了基于GPT-3的text-davinci-003引擎（要知道chatGPT是基于GPT-3.5）相当于弱化版的chatGPT。
 
 这里我不提供OPENAI_API_KEY，因为这是private的key，不允许分享到GitHub上面。请使用者在终端上运行：
 
@@ -20,9 +22,11 @@ qq-chatgpt中包含两个nonebot2插件——chat和qqcard。我这里主要介�
 
 ## 如何运行？
 
-请阅读Nonebot2的官方文档，配置好相关开发环境后，运行本插件。请看动图：
+请阅读Nonebot2的官方文档，配置好相关开发环境后，运行本插件。
 
-![nb run](https://raw.githubusercontent.com/dongguaguaguagua/fly_club_test/main/project4/images/HowToRunIt.gif)
+请看：[动图](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project4/images/HowToRunIt.gif)
+
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project4/images/HowToRunIt.gif)
 
 机器人可以被关键字`.xxx`触发，主要实现了：
 
@@ -89,4 +93,4 @@ bot会告诉你它的使用方法：
 
 ## 最后运行效果
 
-![nb run](https://raw.githubusercontent.com/dongguaguaguagua/fly_club_test/main/project4/images/test_robot.png)
+![nb run](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project4/images/test_robot.png)

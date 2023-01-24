@@ -17,7 +17,7 @@ from rich.panel import Panel
 console = Console()
 console.log("正在初始化……")
 
-ocr = DdddOcr(show_ad = False)
+ocr = DdddOcr(show_ad=False)
 session = requests.session()
 
 httpHead = {
@@ -62,20 +62,22 @@ console.log("[OK]", justify="right", style="green")
 # -1 token校验失败 或 验证码不正确
 # 0  程序正常运行
 # 1  账号或密码错误
+
+
 def login() -> int:
     if userConfig["username"] == "" or userConfig["password"] == "":
         console.log("[b]WARNING:[/b] Please fill the userConfig.json.", style="yellow")
         return -3
     try:
         http_page = session.get(loginUrl)
-        console.log(f"[u]登录页获取[/u] > 状态码", http_page.status_code)
+        console.log("[u]登录页获取[/u] > 状态码", http_page.status_code)
         if http_page.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
             return -2
         console.log("[OK]", justify="right", style="green")
 
         tokenValue = http_page.text.find("tokenValue")
-        console.log(f"[u]随机码获取[/u] >", tokenValue)
+        console.log("[u]随机码获取[/u] >", tokenValue)
         if tokenValue <= 0:
             console.log("[b]ERROR![/b] failed to get token.", style="red")
             return -2
@@ -83,7 +85,7 @@ def login() -> int:
         console.log("[OK]", justify="right", style="green")
 
         http_captcha = session.get(captchaImgUrl)
-        console.log(f"[u]验证码获取[/u] > 状态码", http_captcha.status_code)
+        console.log("[u]验证码获取[/u] > 状态码", http_captcha.status_code)
         if http_page.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
             return -2
@@ -109,7 +111,7 @@ def login() -> int:
     except requests.exceptions.ConnectionError:
         console.log("[b]ERROR![/b] Internet Connection broken.", style="red")
         return -2
-    console.log(f"[u]验证码提交[/u] > 状态码", http_post.status_code)
+    console.log("[u]验证码提交[/u] > 状态码", http_post.status_code)
     console.log("[OK]", justify="right", style="green")
     if http_post.text.find('验证码错误') != -1:
         console.log("[u]登录未成功[/u]：验证码不正确", style="red")
@@ -128,14 +130,16 @@ def login() -> int:
 
     return -4
 
+
 def get_content(i, d, campusName):
     """Extract text from dict."""
     number = d["id"]["teachingBuildingNumber"]
     name = d["teachingBuildingName"]
     return f"[u]{i}.[/u][b] {name}[/b]\n[[cyan]{campusName}[/][yellow]{number}[/]]"
 
+
 def printTimeTable(campusIndex) -> int:
-    if not campusIndex in [1,2,3]:
+    if campusIndex not in [1, 2, 3]:
         console.log("[b]ERROR![/b] Fail to print time table: Unknown Campus.", style="red")
         return 1
     table = Table(
@@ -148,43 +152,44 @@ def printTimeTable(campusIndex) -> int:
     table.add_column("课程", justify="center", style="bold")
     table.add_column("时间", justify="center", style="bold")
     if campusIndex == 1 or campusIndex == 2:
-        table.add_row("[green u]1[/]","[blue]第01节课[/]","[yellow]08:00[/]-[yellow]08:45[/]")
-        table.add_row("[green u]2[/]","[blue]第02节课[/]","[yellow]08:55[/]-[yellow]09:40[/]")
-        table.add_row("[green u]3[/]","[blue]第03节课[/]","[yellow]10:00[/]-[yellow]10:45[/]")
-        table.add_row("[green u]4[/]","[blue]第04节课[/]","[yellow]10:55[/]-[yellow]11:40[/]")
-        table.add_row("","","")
-        table.add_row("[green u]5[/]","[blue]第05节课[/]","[yellow]14:00[/]-[yellow]14:45[/]")
-        table.add_row("[green u]6[/]","[blue]第06节课[/]","[yellow]14:55[/]-[yellow]15:40[/]")
-        table.add_row("[green u]7[/]","[blue]第07节课[/]","[yellow]15:50[/]-[yellow]16:35[/]")
-        table.add_row("[green u]8[/]","[blue]第08节课[/]","[yellow]16:55[/]-[yellow]17:40[/]")
-        table.add_row("[green u]9[/]","[blue]第09节课[/]","[yellow]17:50[/]-[yellow]18:35[/]")
-        table.add_row("","","")
-        table.add_row("[green u]10[/]","[blue]第10节课[/]","[yellow]19:30[/]-[yellow]20:15[/]")
-        table.add_row("[green u]11[/]","[blue]第11节课[/]","[yellow]20:25[/]-[yellow]21:10[/]")
-        table.add_row("[green u]12[/]","[blue]第12节课[/]","[yellow]21:20[/]-[yellow]22:05[/]")
+        table.add_row("[green u]1[/]", "[blue]第01节课[/]", "[yellow]08:00[/]-[yellow]08:45[/]")
+        table.add_row("[green u]2[/]", "[blue]第02节课[/]", "[yellow]08:55[/]-[yellow]09:40[/]")
+        table.add_row("[green u]3[/]", "[blue]第03节课[/]", "[yellow]10:00[/]-[yellow]10:45[/]")
+        table.add_row("[green u]4[/]", "[blue]第04节课[/]", "[yellow]10:55[/]-[yellow]11:40[/]")
+        table.add_row("", "", "")
+        table.add_row("[green u]5[/]", "[blue]第05节课[/]", "[yellow]14:00[/]-[yellow]14:45[/]")
+        table.add_row("[green u]6[/]", "[blue]第06节课[/]", "[yellow]14:55[/]-[yellow]15:40[/]")
+        table.add_row("[green u]7[/]", "[blue]第07节课[/]", "[yellow]15:50[/]-[yellow]16:35[/]")
+        table.add_row("[green u]8[/]", "[blue]第08节课[/]", "[yellow]16:55[/]-[yellow]17:40[/]")
+        table.add_row("[green u]9[/]", "[blue]第09节课[/]", "[yellow]17:50[/]-[yellow]18:35[/]")
+        table.add_row("", "", "")
+        table.add_row("[green u]10[/]", "[blue]第10节课[/]", "[yellow]19:30[/]-[yellow]20:15[/]")
+        table.add_row("[green u]11[/]", "[blue]第11节课[/]", "[yellow]20:25[/]-[yellow]21:10[/]")
+        table.add_row("[green u]12[/]", "[blue]第12节课[/]", "[yellow]21:20[/]-[yellow]22:05[/]")
     elif campusIndex == 3:
-        table.add_row("[green u]1[/]","[blue]第01节课[/]","[yellow]08:15[/]-[yellow]09:00[/]")
-        table.add_row("[green u]2[/]","[blue]第02节课[/]","[yellow]09:10[/]-[yellow]09:55[/]")
-        table.add_row("[green u]3[/]","[blue]第03节课[/]","[yellow]10:15[/]-[yellow]11:00[/]")
-        table.add_row("[green u]4[/]","[blue]第04节课[/]","[yellow]11:10[/]-[yellow]11:55[/]")
-        table.add_row("","","")
-        table.add_row("[green u]5[/]","[blue]第05节课[/]","[yellow]13:50[/]-[yellow]14:35[/]")
-        table.add_row("[green u]6[/]","[blue]第06节课[/]","[yellow]14:45[/]-[yellow]15:30[/]")
-        table.add_row("[green u]7[/]","[blue]第07节课[/]","[yellow]15:40[/]-[yellow]16:25[/]")
-        table.add_row("[green u]8[/]","[blue]第08节课[/]","[yellow]16:45[/]-[yellow]17:30[/]")
-        table.add_row("[green u]9[/]","[blue]第09节课[/]","[yellow]17:40[/]-[yellow]18:25[/]")
-        table.add_row("","","")
-        table.add_row("[green u]10[/]","[blue]第10节课[/]","[yellow]19:20[/]-[yellow]20:05[/]")
-        table.add_row("[green u]11[/]","[blue]第11节课[/]","[yellow]20:15[/]-[yellow]21:00[/]")
-        table.add_row("[green u]12[/]","[blue]第12节课[/]","[yellow]21:10[/]-[yellow]21:55[/]")
+        table.add_row("[green u]1[/]", "[blue]第01节课[/]", "[yellow]08:15[/]-[yellow]09:00[/]")
+        table.add_row("[green u]2[/]", "[blue]第02节课[/]", "[yellow]09:10[/]-[yellow]09:55[/]")
+        table.add_row("[green u]3[/]", "[blue]第03节课[/]", "[yellow]10:15[/]-[yellow]11:00[/]")
+        table.add_row("[green u]4[/]", "[blue]第04节课[/]", "[yellow]11:10[/]-[yellow]11:55[/]")
+        table.add_row("", "", "")
+        table.add_row("[green u]5[/]", "[blue]第05节课[/]", "[yellow]13:50[/]-[yellow]14:35[/]")
+        table.add_row("[green u]6[/]", "[blue]第06节课[/]", "[yellow]14:45[/]-[yellow]15:30[/]")
+        table.add_row("[green u]7[/]", "[blue]第07节课[/]", "[yellow]15:40[/]-[yellow]16:25[/]")
+        table.add_row("[green u]8[/]", "[blue]第08节课[/]", "[yellow]16:45[/]-[yellow]17:30[/]")
+        table.add_row("[green u]9[/]", "[blue]第09节课[/]", "[yellow]17:40[/]-[yellow]18:25[/]")
+        table.add_row("", "", "")
+        table.add_row("[green u]10[/]", "[blue]第10节课[/]", "[yellow]19:20[/]-[yellow]20:05[/]")
+        table.add_row("[green u]11[/]", "[blue]第11节课[/]", "[yellow]20:15[/]-[yellow]21:00[/]")
+        table.add_row("[green u]12[/]", "[blue]第12节课[/]", "[yellow]21:10[/]-[yellow]21:55[/]")
     console.print(Panel.fit(
-            table,
-            padding=(1, 2),
-            title="[bold white]{}校区教学时间表".format(campusList[campusIndex - 1]),
-            border_style="bright_green"
-        ), justify= "center"
+        table,
+        padding=(1, 2),
+        title="[bold white]{}校区教学时间表".format(campusList[campusIndex - 1]),
+        border_style="bright_green"
+    ), justify="center"
     )
     return 0
+
 
 def searchFreeClassroom() -> int:
     message = Table.grid()
@@ -215,11 +220,11 @@ def searchFreeClassroom() -> int:
                     userConfig["campus"] = campusIndex
                     break
                 else:
-                    console.log("[b]WARNING[/b]: 请输入1,2,3中的一个数。",style="yellow")
-            except:
-                console.log("[b]WARNING[/b]: 请输入一个正整数。",style="yellow")
+                    console.log("[b]WARNING[/b]: 请输入1,2,3中的一个数。", style="yellow")
+            except ValueError:
+                console.log("[b]WARNING[/b]: 请输入一个正整数。", style="yellow")
     else:
-        console.print(f"使用 [u i]userConfig.json[/] 中的值:", userConfig["campus"])
+        console.print("使用 [u i]userConfig.json[/] 中的值:", userConfig["campus"])
         campusIndex = userConfig["campus"]
 
     # open the downloaded building list
@@ -227,7 +232,7 @@ def searchFreeClassroom() -> int:
         d = json.load(f)
 
     renderables = [Panel(get_content(i, d, campusList[campusIndex - 1]), expand=False)
-                    for i, d in enumerate(d[campusIndex - 1])]
+                   for i, d in enumerate(d[campusIndex - 1])]
     console.print(Columns(renderables), justify="center")
 
     if userConfig["buildings"] == [] or userConfig["buildings"] == [""]:
@@ -235,7 +240,7 @@ def searchFreeClassroom() -> int:
         buildingList = input().split(" ")
     else:
         buildingList = userConfig["buildings"]
-        console.log(f"使用 [u i]userConfig.json[/] 中的值:", ' '.join(buildingList))
+        console.log("使用 [u i]userConfig.json[/] 中的值:", ' '.join(buildingList))
     if userConfig["rememberBuildings"]:
         userConfig["buildings"] = buildingList
     else:
@@ -269,14 +274,14 @@ def searchFreeClassroom() -> int:
             'xqm': campusList[campusIndex-1],
             'position': f"0{campusIndex}_n"
         })
-        console.log(f"[u]今日教室获取[/u] > 状态码", http_response.status_code)
+        console.log("[u]今日教室获取[/u] > 状态码", http_response.status_code)
         if http_response.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
             return -2
         console.log("[OK]", justify="right", style="green")
 
         http_response = session.post(todayUrl + ','.join(timeList), data={"dayplus": "0"})
-        console.log(f"[u]空闲教室获取[/u] > 状态码", http_response.status_code)
+        console.log("[u]空闲教室获取[/u] > 状态码", http_response.status_code)
         if http_response.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
             return -2
@@ -303,13 +308,12 @@ def searchFreeClassroom() -> int:
         renderables = []
         for classroom in obj["claroom"]:
             renderables.append(Panel(f"[white bold]{classroom['classroom']}[/]\n[cyan]{classroom['classNumberOfSeats']}[/]",
-                                 expand=False, border_style="bright_green",))
+                                     expand=False, border_style="bright_green",))
         table.add_row(f"[yellow]{obj['acmcBuilding']}[/] {obj['acmcBuildingName']}", Columns(renderables))
     console.print(table)
     return 0
 
+
 if __name__ == '__main__':
     if login() == 0 and searchFreeClassroom() == 0:
         console.log("搜索完成", style="green")
-
-
