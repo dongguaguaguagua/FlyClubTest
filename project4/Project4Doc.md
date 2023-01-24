@@ -24,7 +24,7 @@ qq-chatgpt中包含两个nonebot2插件——chat和qqcard。我这里主要介�
 
 请阅读Nonebot2的官方文档，配置好相关开发环境后，运行本插件。
 
-请看：[动图](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project4/images/HowToRunIt.gif)
+请看：[演示动图](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project4/images/HowToRunIt.gif)
 
 ![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project4/images/HowToRunIt.gif)
 
