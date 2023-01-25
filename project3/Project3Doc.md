@@ -199,6 +199,10 @@ pip install -r requirements.txt
 
 ### 部分技术原理
 
+[点我看演示动图1](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/display_gif1.gif)
+
+[点我看演示动图2](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/display_gif2.gif)
+
 - 脚本使用request发送请求，python的rich模块美化输出，使用ddddocr进行自动OCR验证码识别（有一定识别失败率）。脚本输出非常好看，截图如下：
 
 ![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/getFreeClassroom1.png)
@@ -218,9 +222,6 @@ pip install -r requirements.txt
     - 其中密码采用md5值哈希加密
 - 空闲教室的接口为 http://zhjw.scu.edu.cn/student/teachingResources/freeClassroom/today/ 有两个参数，可通过传入`position=01_n`来指定望江的教学楼。
 
-[点我看演示动图1](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/display_gif1.gif)
-
-[点我看演示动图2](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/display_gif2.gif)
 
 <!-- ![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3/images/display_gif1.gif) -->
 

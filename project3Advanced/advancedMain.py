@@ -67,13 +67,16 @@ def get_information(href: str):
     result.append(numbers_of_forks)
     # 简介(About)
     selected_about = soup.select("p.f4:nth-child(2)")
-    if selected_about == []:
-        about = "No description or website provided."
-    else:
-        about = selected_about[0].text.strip().replace(",", "")
-    result.append(about)
+    about_text = "No description or website provided."
+    if selected_about != []:
+        about_text = selected_about[0].text.strip().replace(",", "")
+    result.append(about_text)
     # Readme
-    result.append(github_root_url + href + "/blob/master/README.md")
+    readme_file_name = "No README file found."
+    selected_readme = soup.select(".Box-title > a")
+    if selected_readme != []:
+        readme_file_name = github_root_url + href + "/blob/master/" + selected_readme[0].text.strip()
+    result.append(readme_file_name)
     # 主题标(Topic，About 下面)
     selected_topics = soup.select(".topic-tag")
     result.append(" | ".join(topic.text.strip() for topic in selected_topics))
@@ -126,7 +129,7 @@ def get_information(href: str):
 
 def save_to_csv():
     index = 1
-    with open("python_repository_list_1.csv", "a") as file:
+    with open("python_repository_list.csv", "a") as file:
         file.write("序号,名称,地址,星标数(star),复刻数(fork),简介(About),README,主题标(Topic),发布版本数量(Release),贡献者数量(Contributors),语言构成(Languages),分支数(Branch),开放议题数(Issues open),关闭议题数(Issues closed),开放拉取请求数(Pull Requests open),关闭拉取请求数(Pull Requests closed)\n")
         for repo in open("python_repository_list.txt"):
             print(index, "-> working on", repo)
