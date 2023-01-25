@@ -1,4 +1,5 @@
 import re
+import os
 import requests
 from bs4 import BeautifulSoup
 from time import sleep
@@ -14,6 +15,8 @@ http_head = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33"
 }
 
+fileDir = os.path.dirname(os.path.abspath(__file__))
+
 
 def get_1000_github_repo() -> None:
     # 爬取前1000个python写的repo（按star排序）
@@ -23,7 +26,7 @@ def get_1000_github_repo() -> None:
         'page': 1,
     }
     # 存入python_repository_list便于读取
-    with open("./python_repository_list.txt", "w") as file:
+    with open(f"{fileDir}/data/python_repository_list.txt", "w") as file:
         # 50页·每页20条 => 1000条
         for i in range(1, 51):
             params['page'] = i
@@ -129,9 +132,9 @@ def get_information(href: str):
 
 def save_to_csv():
     index = 1
-    with open("python_repository_list.csv", "a") as file:
+    with open(f"{fileDir}/data/python_repository_list.csv", "a") as file:
         file.write("序号,名称,地址,星标数(star),复刻数(fork),简介(About),README,主题标(Topic),发布版本数量(Release),贡献者数量(Contributors),语言构成(Languages),分支数(Branch),开放议题数(Issues open),关闭议题数(Issues closed),开放拉取请求数(Pull Requests open),关闭拉取请求数(Pull Requests closed)\n")
-        for repo in open("python_repository_list.txt"):
+        for repo in open(f"{fileDir}/data/python_repository_list.txt"):
             print(index, "-> working on", repo)
             info_list = get_information(repo)
             info_list.insert(0, str(index))

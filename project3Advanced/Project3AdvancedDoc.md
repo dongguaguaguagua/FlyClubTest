@@ -53,7 +53,7 @@ def save_to_csv():
 
 使用seaborn库画的star前50的项目排行榜：
 
-![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure_1.png)
+![](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure.png)
 
 ## 3. 可视化项目依赖图
 
