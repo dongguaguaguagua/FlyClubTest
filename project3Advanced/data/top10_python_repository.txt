@@ -1,0 +1,10 @@
+/donnemartin/system-design-primer
+/vinta/awesome-python
+/TheAlgorithms/Python
+/huggingface/transformers
+/nvbn/thefuck
+/django/django
+/521xueweihan/HelloGitHub
+/pallets/flask
+/home-assistant/core
+/keras-team/keras
