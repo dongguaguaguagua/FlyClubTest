@@ -99,20 +99,29 @@ nx.draw_networkx_labels(G, pos, font_size=5, font_color="r", font_family=["Fira 
 
 （线条越粗说明star越多）
 
-[Figure3](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure3.png)
+![Figure3](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure3.png)
 
 2. 用完整版的数据：
 
 - Fira Code常规体 Top100
 
-[Figure4](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure4.png)
+![Figure4](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure4.png)
 
 - Fira Code粗体 Top100
 
-[Figure5](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure5.png)
+![Figure5](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure5.png)
 
 - Top200开开眼
 
-[Figure6](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure5.png)
+![Figure6](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure6.png)
 
-但是好像两者的数据差异并非肉眼可见，那是因为我在代码里滤去了没有进入top100的项目，因此绝大部分依赖都没用上。
+- Top300 太炫酷了：
+
+![Figure7](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure7.png)
+
+- Top300 将中心放大：
+
+![Figure8](https://github.com/dongguaguaguagua/FlyClubTest/blob/main/project3Advanced/images/Figure8.png)
+
+但是好像两者的数据差异并非肉眼可见，那是因为我在代码里**滤去了没有进入Top100的项目**，因此绝大部分依赖都没用上。
+

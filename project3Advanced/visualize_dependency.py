@@ -47,7 +47,7 @@ def get_dependency_data() -> int:
                 if pos != -1:
                     line = line[:pos].strip()
             dependency[repo].append(line)
-    # print(dependency)
+
     with open(f'{fileDir}/data/dependency_data.json', 'w', encoding='utf-8') as f:
         json.dump(dependency, f, ensure_ascii=True, indent=4)
     return 0
@@ -90,7 +90,7 @@ def get_complete_data() -> int:
             if item == repo:
                 save = True
         dependency[repo] = list(item_set)
-    # print(dependency[repo])
+
     with open(f'{fileDir}/data/complete_dependency_data.json', 'w', encoding='utf-8') as f:
         json.dump(dependency, f, ensure_ascii=True, indent=4)
     return 0
@@ -104,7 +104,7 @@ def draw_dependency_map(rank=100) -> None:
     G = nx.MultiDiGraph()  # 有多重边有向图
     edge_list = []
 
-    with open(f"{fileDir}/data/dependency_data.json") as f:
+    with open(f"{fileDir}/data/complete_dependency_data.json") as f:
         dependency = json.load(f)
     for key, value in dependency.items():
         if value == []:
@@ -138,4 +138,4 @@ def draw_dependency_map(rank=100) -> None:
 if __name__ == '__main__':
     # get_dependency_data()
     # get_complete_data()
-    draw_dependency_map(rank=200)
+    draw_dependency_map(rank=300)
