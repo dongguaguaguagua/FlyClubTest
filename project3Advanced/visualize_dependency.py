@@ -109,14 +109,14 @@ def draw_dependency_map(rank=100) -> None:
     for key, value in dependency.items():
         if value == []:
             continue
-        el = []
+        edges = []
         key = key.split('/')[-1]
         for item in value:
             item = item.split('/')[-1]
             if item in repo_name:
-                el.append((key, item))
-        G.add_edges_from(el)
-        edge_list.append(el)
+                edges.append((key, item))
+        G.add_edges_from(edges)
+        edge_list.append(edges)
         rank -= 1
         if rank == 0:
             break
@@ -126,11 +126,13 @@ def draw_dependency_map(rank=100) -> None:
     # pos = nx.random_layout(G)
     # pos = nx.spring_layout(G)
 
-    for index, el in enumerate(edge_list):
-        nx.draw_networkx_edges(G, pos, edgelist=el, width=star_list[index] / 100000, alpha=0.5, edge_color='b')
-    nx.draw_networkx_nodes(G, pos, alpha=0.5, node_size=100, edgecolors="b", node_color="w", linewidths=0.5)
-    nx.draw_networkx_labels(G, pos, font_size=5, font_color="r", font_family=["Fira Code"], font_weight="bold")
+    for index, edges in enumerate(edge_list):
+        nx.draw_networkx_edges(G, pos, edgelist=edges, width=star_list[index] / 100000, alpha=0.5, edge_color='b')
+    nx.draw_networkx_nodes(G, pos, alpha=0.1, node_size=150, edgecolors="g", node_color="g", linewidths=5)
+    nx.draw_networkx_labels(G, pos, font_size=6, font_color="r", font_family=["Fira Code"],
+                            font_weight="bold")
     plt.title(f'Github Python Topic top{index + 1}')
+    plt.tight_layout()
     plt.axis('off')
     plt.show()
 
@@ -138,4 +140,4 @@ def draw_dependency_map(rank=100) -> None:
 if __name__ == '__main__':
     # get_dependency_data()
     # get_complete_data()
-    draw_dependency_map(rank=300)
+    draw_dependency_map()
