@@ -2,21 +2,33 @@ import os
 import json
 import hashlib
 import sys
+# 强制使用IPv4
+import socket
 import requests
-
+import requests.packages.urllib3.util.connection as urllib3_cn
 # 带带弟弟 OCR
 from ddddocr import DdddOcr
-
 # 用rich输出
 from rich.console import Console
 from rich.columns import Columns
 from rich.table import Table
 from rich.panel import Panel
 
+
+def allowed_gai_family():
+    """
+    强制使用IPv4解决requests过慢的问题
+    https://github.com/shazow/urllib3/blob/master/urllib3/util/connection.py
+    """
+    family = socket.AF_INET
+    return family
+
+
 # ------ init -------
 console = Console()
 console.log("正在初始化……")
-
+# [解决requests过慢的问题](https://stackoverflow.com/questions/62599036/python-requests-is-slow-and-takes-very-long-to-complete-http-or-https-request)
+urllib3_cn.allowed_gai_family = allowed_gai_family
 ocr = DdddOcr(show_ad=False, old=True)
 session = requests.Session()
 session.headers = {
@@ -62,8 +74,15 @@ def login() -> int:
     # 0  程序正常运行
     # 1  账号或密码错误
     if userConfig["username"] == "" or userConfig["password"] == "":
-        console.log("[b]WARNING:[/b] Please fill the userConfig.json.", style="yellow")
-        return -3
+        try:
+            console.log("[b]WARNING:[/b] Please fill the userConfig.json.", style="yellow")
+            console.print("[dim]>>>[/] （一般来说就是学号）请输入您的[b]用户名[/b]:", end="")
+            userConfig['username'] = input()
+            console.print("[dim]>>>[/] 请输入您的[b]密码[/b]:", end="")
+            userConfig['password'] = input("")
+        except Exception as e:
+            console.log("\n[b]ERROR![/]", e, style="red")
+            return -3
     try:
         http_page = session.get(loginUrl)
         console.log("[u]登录页获取[/u] > 状态码", http_page.status_code)
