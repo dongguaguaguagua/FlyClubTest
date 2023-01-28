@@ -17,7 +17,7 @@ from rich.panel import Panel
 console = Console()
 console.log("正在初始化……")
 
-ocr = DdddOcr(show_ad=False)
+ocr = DdddOcr(show_ad=False, old=True)
 session = requests.session()
 
 httpHead = {
@@ -56,15 +56,14 @@ except json.decoder.JSONDecodeError:
 console.log("[OK]", justify="right", style="green")
 # ----- init end --------
 
-# -4 未知错误
-# -3 未填写config
-# -2 网络错误
-# -1 token校验失败 或 验证码不正确
-# 0  程序正常运行
-# 1  账号或密码错误
-
 
 def login() -> int:
+    # -4 未知错误
+    # -3 未填写config
+    # -2 网络错误
+    # -1 token校验失败 或 验证码不正确
+    # 0  程序正常运行
+    # 1  账号或密码错误
     if userConfig["username"] == "" or userConfig["password"] == "":
         console.log("[b]WARNING:[/b] Please fill the userConfig.json.", style="yellow")
         return -3
@@ -128,6 +127,8 @@ def login() -> int:
         console.log("[u]已成功登录[/u]：成功登录系统", style="green")
         return 0
 
+    console.log("[u]未知错误[/u]，程序退出", style="red")
+    console.log(http_post.text)
     return -4
 
 
@@ -151,59 +152,43 @@ def printTimeTable(campusIndex) -> int:
     table.add_column("编号", justify="center", style="bold")
     table.add_column("课程", justify="center", style="bold")
     table.add_column("时间", justify="center", style="bold")
-    if campusIndex == 1 or campusIndex == 2:
-        table.add_row("[green u]1[/]", "[blue]第01节课[/]", "[yellow]08:00[/]-[yellow]08:45[/]")
-        table.add_row("[green u]2[/]", "[blue]第02节课[/]", "[yellow]08:55[/]-[yellow]09:40[/]")
-        table.add_row("[green u]3[/]", "[blue]第03节课[/]", "[yellow]10:00[/]-[yellow]10:45[/]")
-        table.add_row("[green u]4[/]", "[blue]第04节课[/]", "[yellow]10:55[/]-[yellow]11:40[/]")
-        table.add_row("", "", "")
-        table.add_row("[green u]5[/]", "[blue]第05节课[/]", "[yellow]14:00[/]-[yellow]14:45[/]")
-        table.add_row("[green u]6[/]", "[blue]第06节课[/]", "[yellow]14:55[/]-[yellow]15:40[/]")
-        table.add_row("[green u]7[/]", "[blue]第07节课[/]", "[yellow]15:50[/]-[yellow]16:35[/]")
-        table.add_row("[green u]8[/]", "[blue]第08节课[/]", "[yellow]16:55[/]-[yellow]17:40[/]")
-        table.add_row("[green u]9[/]", "[blue]第09节课[/]", "[yellow]17:50[/]-[yellow]18:35[/]")
-        table.add_row("", "", "")
-        table.add_row("[green u]10[/]", "[blue]第10节课[/]", "[yellow]19:30[/]-[yellow]20:15[/]")
-        table.add_row("[green u]11[/]", "[blue]第11节课[/]", "[yellow]20:25[/]-[yellow]21:10[/]")
-        table.add_row("[green u]12[/]", "[blue]第12节课[/]", "[yellow]21:20[/]-[yellow]22:05[/]")
-    elif campusIndex == 3:
-        table.add_row("[green u]1[/]", "[blue]第01节课[/]", "[yellow]08:15[/]-[yellow]09:00[/]")
-        table.add_row("[green u]2[/]", "[blue]第02节课[/]", "[yellow]09:10[/]-[yellow]09:55[/]")
-        table.add_row("[green u]3[/]", "[blue]第03节课[/]", "[yellow]10:15[/]-[yellow]11:00[/]")
-        table.add_row("[green u]4[/]", "[blue]第04节课[/]", "[yellow]11:10[/]-[yellow]11:55[/]")
-        table.add_row("", "", "")
-        table.add_row("[green u]5[/]", "[blue]第05节课[/]", "[yellow]13:50[/]-[yellow]14:35[/]")
-        table.add_row("[green u]6[/]", "[blue]第06节课[/]", "[yellow]14:45[/]-[yellow]15:30[/]")
-        table.add_row("[green u]7[/]", "[blue]第07节课[/]", "[yellow]15:40[/]-[yellow]16:25[/]")
-        table.add_row("[green u]8[/]", "[blue]第08节课[/]", "[yellow]16:45[/]-[yellow]17:30[/]")
-        table.add_row("[green u]9[/]", "[blue]第09节课[/]", "[yellow]17:40[/]-[yellow]18:25[/]")
-        table.add_row("", "", "")
-        table.add_row("[green u]10[/]", "[blue]第10节课[/]", "[yellow]19:20[/]-[yellow]20:05[/]")
-        table.add_row("[green u]11[/]", "[blue]第11节课[/]", "[yellow]20:15[/]-[yellow]21:00[/]")
-        table.add_row("[green u]12[/]", "[blue]第12节课[/]", "[yellow]21:10[/]-[yellow]21:55[/]")
-    console.print(Panel.fit(
-        table,
-        padding=(1, 2),
-        title="[bold white]{}校区教学时间表".format(campusList[campusIndex - 1]),
-        border_style="bright_green"
-    ), justify="center"
+    row1 = ["1", "2", "3", "4", "", "5", "6", "7", "8", "9", "", "10", "11", "12"]
+    row2 = ["第01节课", "第02节课", "第03节课", "第04节课", "", "第05节课", "第06节课", "第07节课", "第08节课", "第09节课", "", "第10节课", "第11节课", "第12节课"]
+    row3 = [
+        ["08:00-08:45", "08:55-09:40", "10:00-10:45", "10:55-11:40", "", "14:00-14:45", "14:55-15:40", "15:50-16:35", "16:55-17:40", "17:50-18:35", "", "19:30-20:15", "20:25-21:10", "21:20-22:05"],
+        ["08:00-08:45", "08:55-09:40", "10:00-10:45", "10:55-11:40", "", "14:00-14:45", "14:55-15:40", "15:50-16:35", "16:55-17:40", "17:50-18:35", "", "19:30-20:15", "20:25-21:10", "21:20-22:05"],
+        ["08:15-09:00", "09:10-09:55", "10:15-11:00", "11:10-11:55", "", "13:50-14:35", "14:45-15:30", "15:40-16:25", "16:45-17:30", "17:40-18:25", "", "19:20-20:05", "20:15-21:00", "21:10-21:55"]
+    ]
+    for i in range(14):
+        table.add_row(f"[green u]{row1[i]}[/]", f"[blue]{row2[i]}[/]", f"[yellow]{row3[campusIndex - 1][i]}[/]")
+    console.print(
+        Panel.fit(
+            table,
+            padding=(1, 2),
+            title="[bold white]{}校区教学时间表".format(campusList[campusIndex - 1]),
+            border_style="bright_green"
+        ),
+        justify="center"
     )
     return 0
 
 
 def searchFreeClassroom() -> int:
-    message = Table.grid()
-    message.add_column()
-    message.add_column()
-    message.add_column()
-    message.add_row(
-        Panel("[u]1.[/u] [cyan]望江"),
-        Panel("[u]2.[/u] [cyan]华西"),
-        Panel("[u]3.[/u] [cyan]江安")
+    campusMessage = Table.grid(padding=1, collapse_padding=True)
+    campusMessage.pad_edge = False
+    introduceMsg = [
+        "[dim]四川大学 望江校区 为川大 校本部, 占地 3000 多亩, 主要为 四川大学 大三,大四 及硕博士 研究生同学 学习的地方, 望江校区 位于成都市 一环路上, 分设 东西南北 四个门, 交通方便, 地理位置优越.",
+        "[dim]四川大学 华西校区 座落在 成都人民南路 三段17号, 是最早被列入国家 211工程 的 四所 综合性 重点 医科大学 之一.",
+        "[dim]四川大学 江安校区 为川大的 本科教育 基地, 主要为 四川大学 大一,大二 同学 学习的地方, 校区总占地 3000亩, 另有教师住宅区 240余亩.校区地处 成都市 双流航空港 经济开发区."
+    ]
+    campusMessage.add_row(
+        Panel(introduceMsg[0], padding=(1, 2), title="[u]1.[/u] [b]望江校区[/]"),
+        Panel(introduceMsg[1], padding=(1, 2), title="[u]2.[/u] [b]华西校区[/]"),
+        Panel(introduceMsg[2], padding=(1, 2), title="[u]3.[/u] [b]江安校区[/]"),
     )
     console.print(
         Panel.fit(
-            message,
+            campusMessage,
             padding=(1, 2),
             title="[bold white]您想要查询哪个校区的空闲教室？",
             border_style="bright_blue",
