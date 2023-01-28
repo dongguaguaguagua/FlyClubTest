@@ -10,13 +10,13 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 
 
-session = requests.Session()
-
 fileDir = os.path.dirname(os.path.abspath(__file__))
 
 github_raw_url = "https://raw.githubusercontent.com"
 github_root_url = "https://github.com"
-http_head = {
+
+session = requests.Session()
+session.headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33"
 }
 
@@ -31,7 +31,7 @@ def get_dependency_data() -> int:
         print("working on ->", repo)
         href = github_raw_url + repo + "/master/requirements.txt"
         try:
-            requirements = session.get(href, headers=http_head)
+            requirements = session.get(href)
         except requests.exceptions.ConnectionError:
             print("Internet ConnectionError.")
             return -2
@@ -65,7 +65,7 @@ def get_complete_data() -> int:
         href = github_root_url + repo + "/network/dependencies"
         while True:
             try:
-                requirements = session.get(href, headers=http_head)
+                requirements = session.get(href)
             except requests.exceptions.ConnectionError:
                 print("Internet ConnectionError.\nRetring...")
                 continue

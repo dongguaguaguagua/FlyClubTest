@@ -19,12 +19,11 @@ console.log("正在初始化……")
 
 ocr = DdddOcr(show_ad=False, old=True)
 session = requests.Session()
-
-httpHead = {
+session.headers = {
+    'Host': 'zhjw.scu.edu.cn',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/109.0',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
-    'Connection': 'keep-alive',
     'Upgrade-Insecure-Requests': '1',
 }
 loginUrl = "http://zhjw.scu.edu.cn/login"
@@ -66,7 +65,7 @@ def login() -> int:
         console.log("[b]WARNING:[/b] Please fill the userConfig.json.", style="yellow")
         return -3
     try:
-        http_page = session.get(loginUrl, headers=httpHead)
+        http_page = session.get(loginUrl)
         console.log("[u]登录页获取[/u] > 状态码", http_page.status_code)
         if http_page.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
@@ -104,7 +103,7 @@ def login() -> int:
         "j_captcha": captchaResult
     }
     try:
-        http_post = session.post(loginCheckUrl, postData, httpHead)
+        http_post = session.post(loginCheckUrl, postData)
     except requests.exceptions.ConnectionError:
         console.log("[b]ERROR![/b] Internet Connection broken.", style="red")
         return -2
@@ -203,7 +202,7 @@ def searchFreeClassroom() -> int:
                     userConfig["campus"] = campusIndex
                     break
                 else:
-                    console.log("[b]WARNING[/b]: 请输入1,2,3中的一个数。", style="yellow")
+                    console.log("[b]WARNING[/b]: 请输入 1,2,3 中的一个数。", style="yellow")
             except ValueError:
                 console.log("[b]WARNING[/b]: 请输入一个正整数。", style="yellow")
     else:

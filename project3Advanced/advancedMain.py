@@ -5,13 +5,12 @@ from bs4 import BeautifulSoup
 from time import sleep
 from random import random
 
-session = requests.Session()
-
 github_root_url = "https://github.com"
 python_topic_url = "https://github.com/topics/python"
 test_url = "https://github.com/donnemartin/system-design-primer"
 
-http_head = {
+session = requests.Session()
+session.headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33"
 }
 
@@ -30,7 +29,7 @@ def get_1000_github_repo() -> None:
         # 50页·每页20条 => 1000条
         for i in range(1, 51):
             params['page'] = i
-            page_response = session.get(python_topic_url, params=params, headers=http_head)
+            page_response = session.get(python_topic_url, params=params)
             soup = BeautifulSoup(page_response.text, "lxml")
             all_uls = soup.select(".tabnav-tabs")
             print("working on page", i, "...")
@@ -47,7 +46,7 @@ def get_information(href: str):
     # 地址
     result.append(github_root_url + href)
     try:
-        main_page = session.get(github_root_url + href, headers=http_head)
+        main_page = session.get(github_root_url + href)
         sleep(random())
         issue_page = session.get(github_root_url + href + '/issues')
         sleep(random())
