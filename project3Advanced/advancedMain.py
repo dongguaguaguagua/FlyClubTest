@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from time import sleep
 from random import random
 
-session = requests.session()
+session = requests.Session()
 
 github_root_url = "https://github.com"
 python_topic_url = "https://github.com/topics/python"
@@ -49,9 +49,9 @@ def get_information(href: str):
     try:
         main_page = session.get(github_root_url + href, headers=http_head)
         sleep(random())
-        issue_page = session.get(github_root_url + href + '/issues', headers=http_head)
+        issue_page = session.get(github_root_url + href + '/issues')
         sleep(random())
-        pull_page = session.get(github_root_url + href + '/pulls', headers=http_head)
+        pull_page = session.get(github_root_url + href + '/pulls')
         sleep(random())
     except Exception as e:
         print("Fail to load", href, "because of Error:", e)

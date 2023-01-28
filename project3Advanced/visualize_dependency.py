@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 
 
-session = requests.session()
+session = requests.Session()
 
 fileDir = os.path.dirname(os.path.abspath(__file__))
 
@@ -79,7 +79,7 @@ def get_complete_data() -> int:
         for button in load_more_dependencies:
             url = github_root_url + button['action'].strip()
             print("GET", url)
-            http_more = session.get(url, headers=http_head)
+            http_more = session.get(url)
             html_text_all += http_more.text
         save = False
         for item in re.findall(r"href=\"/[a-zA-Z0-9_-]*/[a-zA-Z0-9_-]*\"", html_text_all):
@@ -122,9 +122,6 @@ def draw_dependency_map(rank=100) -> None:
             break
     # 用下来arf_layout最清晰
     pos = nx.arf_layout(G)
-    # pos = nx.circular_layout(G)
-    # pos = nx.random_layout(G)
-    # pos = nx.spring_layout(G)
 
     for index, edges in enumerate(edge_list):
         nx.draw_networkx_edges(G, pos, edgelist=edges, width=star_list[index] / 100000, alpha=0.5, edge_color='b')

@@ -18,16 +18,14 @@ console = Console()
 console.log("正在初始化……")
 
 ocr = DdddOcr(show_ad=False, old=True)
-session = requests.session()
+session = requests.Session()
 
 httpHead = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33",
-    'Accept': 'application/json, text/javascript, */*; q=0.01',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/109.0',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'X-Requested-With': 'XMLHttpRequest',
-    'Origin': 'http://zhjw.scu.edu.cn',
     'Connection': 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
 }
 loginUrl = "http://zhjw.scu.edu.cn/login"
 loginCheckUrl = "http://zhjw.scu.edu.cn/j_spring_security_check"
@@ -68,7 +66,7 @@ def login() -> int:
         console.log("[b]WARNING:[/b] Please fill the userConfig.json.", style="yellow")
         return -3
     try:
-        http_page = session.get(loginUrl)
+        http_page = session.get(loginUrl, headers=httpHead)
         console.log("[u]登录页获取[/u] > 状态码", http_page.status_code)
         if http_page.status_code != 200:
             console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
@@ -92,9 +90,9 @@ def login() -> int:
     except requests.exceptions.ConnectionError:
         console.log("[b]ERROR![/b] Internet Connection broken.", style="red")
         return -2
-    # with open(f"{fileDir}/images/captcha.jpg", "wb") as f:
-    #     f.write(http_captcha.content)
-    #     f.close()
+    with open(f"{fileDir}/images/captcha.jpg", "wb") as f:
+        f.write(http_captcha.content)
+        f.close()
     captchaResult = ocr.classification(http_captcha.content)
     console.log(f"[u]验证码识别[/u] > [cyan]{captchaResult}")
     console.log("[OK]", justify="right", style="green")
