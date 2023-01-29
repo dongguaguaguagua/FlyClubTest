@@ -29,7 +29,7 @@ console = Console()
 console.log("正在初始化……")
 # [解决requests过慢的问题](https://stackoverflow.com/questions/62599036/python-requests-is-slow-and-takes-very-long-to-complete-http-or-https-request)
 urllib3_cn.allowed_gai_family = allowed_gai_family
-ocr = DdddOcr(show_ad=False, old=True)
+ocr = DdddOcr(show_ad=False)
 session = requests.Session()
 session.headers = {
     'Host': 'zhjw.scu.edu.cn',
@@ -99,20 +99,25 @@ def login() -> int:
         tokenValue = http_page.text[tokenValue + 37:tokenValue + 69]
         console.log("[OK]", justify="right", style="green")
 
-        http_captcha = session.get(captchaImgUrl)
-        console.log("[u]验证码获取[/u] > 状态码", http_captcha.status_code)
-        if http_page.status_code != 200:
-            console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
-            return -2
-        console.log("[OK]", justify="right", style="green")
+        while True:
+            http_captcha = session.get(captchaImgUrl)
+            captchaResult = ocr.classification(http_captcha.content)
+            console.log("[u]验证码获取[/u] > 状态码", http_captcha.status_code)
+            if http_page.status_code != 200:
+                console.log("[b]ERROR![/b] status_code isn't 200.", style="red")
+                return -2
+            console.log("[OK]", justify="right", style="green")
+            console.log(f"[u]验证码识别[/u] > [cyan]{captchaResult}")
+            if len(captchaResult) == 4:
+                break
+            console.log("[b]WARNING:[/b] 验证码识别错误，即将重新获取验证码...", style="yellow")
     except requests.exceptions.ConnectionError:
         console.log("[b]ERROR![/b] Internet Connection broken.", style="red")
         return -2
     with open(f"{fileDir}/images/captcha.jpg", "wb") as f:
         f.write(http_captcha.content)
         f.close()
-    captchaResult = ocr.classification(http_captcha.content)
-    console.log(f"[u]验证码识别[/u] > [cyan]{captchaResult}")
+
     console.log("[OK]", justify="right", style="green")
     httpHash = hashlib.md5(userConfig["password"].encode()).hexdigest()
     postData = {
@@ -135,7 +140,7 @@ def login() -> int:
     elif http_post.text.find('token校验失败') != -1:
         console.log("[u]登录未成功[/u]：token校验失败", style="red")
         return -1
-    elif http_post.text.find('用户密码错误') != -1:
+    elif http_post.text.find('用户名或密码错误') != -1:
         console.log("[u]登录未成功[/u]：账号或密码错误", style="red")
         return 1
 
@@ -193,9 +198,9 @@ def searchFreeClassroom() -> int:
     campusMessage = Table.grid(padding=1, collapse_padding=True)
     campusMessage.pad_edge = False
     introduceMsg = [
-        "[dim]四川大学 望江校区 为川大 校本部, 占地 3000 多亩, 主要为 四川大学 大三,大四 及硕博士 研究生同学 学习的地方, 望江校区 位于成都市 一环路上, 分设 东西南北 四个门, 交通方便, 地理位置优越.",
-        "[dim]四川大学 华西校区 座落在 成都人民南路 三段17号, 是最早被列入国家 211工程 的 四所 综合性 重点 医科大学 之一.",
-        "[dim]四川大学 江安校区 为川大的 本科教育 基地, 主要为 四川大学 大一,大二 同学 学习的地方, 校区总占地 3000亩, 另有教师住宅区 240余亩.校区地处 成都市 双流航空港 经济开发区."
+        "[dim]四川大学 望江校区 为川大 校本部, 占地 3000 多亩, 主要为 四川大学 大三,大四 及 硕博士,研究生 学习的地方, 望江校区 位于 成都市 一环路上, 分设 东西南北 四个门, 交通方便, 地理位置 优越.",
+        "[dim]四川大学 华西校区 座落在 成都 人民南路 三段17号, 是最早 被列入 国家 211 工程 的 四所 综合性 重点 医科大学 之一.",
+        "[dim]四川大学 江安校区 为川大的 本科教育 基地, 主要为 四川大学 大一,大二 同学 学习的地方, 校区总占地 3000亩, 另有教师住宅区 240 余亩. 校区 地处 成都市 双流 航空港 经济 开发区."
     ]
     campusMessage.add_row(
         Panel(introduceMsg[0], padding=(1, 2), title="[u]1.[/u] [b]望江校区[/]"),
@@ -206,7 +211,7 @@ def searchFreeClassroom() -> int:
         Panel.fit(
             campusMessage,
             padding=(1, 2),
-            title="[bold white]您想要查询哪个校区的空闲教室？",
+            title="[bold yellow]您想要查询哪个校区的空闲教室？",
             border_style="bright_blue",
         ),
         justify="center",
