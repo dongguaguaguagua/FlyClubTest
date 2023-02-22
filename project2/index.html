@@ -63,6 +63,21 @@ while($row = mysqli_fetch_array($result)){
     <title>scu资源共享站-电影</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <style>
+        /* unnecessary code */
+        table#searchShow{
+            width : 1424px;
+            /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+            table-layout : fixed;
+        }
+        /*溢出部分样式*/
+        td.link{
+            width:100px;
+            word-break:keep-all;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        /* unnecessary code end */
         body{
             margin: 0;
         }
@@ -300,6 +315,7 @@ while($row = mysqli_fetch_array($result)){
             }
         }
     </script>
+
 </body>
 </html>
 

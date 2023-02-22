@@ -7,5 +7,6 @@ share/
 pyvenv.cfg
 *.sublime-project
 *.sublime-workspace
-
+./project3/images/captcha.jpg
+./project3/userConfig.json
 

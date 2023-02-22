@@ -143,6 +143,9 @@ def login() -> int:
     elif http_post.text.find('用户名或密码错误') != -1:
         console.log("[u]登录未成功[/u]：账号或密码错误", style="red")
         return 1
+    elif http_post.text.find('用户名为空') != -1:
+        console.log("[u]登录未成功[/u]：用户名为空", style="red")
+        return 1
 
     if http_post.text.find('的培养方案') != -1:
         console.log("[u]已成功登录[/u]：成功登录系统", style="green")
@@ -258,7 +261,7 @@ def searchFreeClassroom() -> int:
 
     try:
         buildingList = [d[campusIndex - 1][int(i)]["id"]["teachingBuildingNumber"] for i in buildingList]
-    except ValueError:
+    except Exception:
         console.log("[b]WARNING:[/b] 请输入正确的编号。", style="yellow")
         buildingList = [obj["id"]["teachingBuildingNumber"] for obj in d[campusIndex - 1]]
         console.log("[b]WARNING:[/b] 默认为选择所有教学楼。", style="yellow")
